@@ -1,3 +1,5 @@
-outer mysite dir. is the project
-xtracto is the app
-regsenv is the virtual env
+#Outer mysite dir. is the django project.
+
+#Xtracto is the django app.
+
+#Regsenv is the virtual env.
