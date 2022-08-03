@@ -43,6 +43,9 @@ i{
 
 
 /* CLASS SELECTORS NAV*/
+.home_nav{
+    background-color: transparent;
+}
 .logo{
     display: inline-block;
     margin: 1.44759699% 0 1.44759699% 6.94846555%;

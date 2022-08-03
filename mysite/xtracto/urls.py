@@ -14,5 +14,6 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path("registerfrontend/", views.register, name="registerfrontend"),
     path("loginfrontend/", views.login, name="loginfrontend"),
+    path("newhome/", views.newhome, name="newhome"),
     # path("register/", views.register, name=""),
 ]
