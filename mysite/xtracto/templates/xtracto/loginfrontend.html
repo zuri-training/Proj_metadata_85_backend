@@ -5,20 +5,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XTRACTO: Contact page</title>
+  <title>XTRACTO: Login page</title>
   <!-- favicon -->
   <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
   <!--  -->
 
+  {% load static %}
   <!-- css custom link -->
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
   <!--  -->
-
-  <!-- font-awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +23,10 @@
     href="https://fonts.googleapis.com/css2?family=Comforter&family=Poppins&family=Inter:wght@200,300,400,500,600,700,800,900&family=Quintessential&display=swap"
     rel="stylesheet">
   <!--  -->
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -37,7 +37,7 @@
       <li><a href="#about" class="nav-link">Home</a></li>
       <li><a href="./img_about/About-us.html" class="nav-link">About Us</a></li>
       <li><a href="./contact.html" class="nav-link">Contact Us</a></li>
-      <li><a href="#contact" class="nav-link">FAQs</a></li>
+      <li><a href="./contact.html" class="nav-link">FAQs</a></li>
     </ul>
 
     <div class="signup-link">
@@ -51,57 +51,32 @@
   </nav>
   <!-- End of Nav -->
 
-
-  <!-- Main page -->
+  <!-- MAIN PAGE -->
   <main>
-    <div class="container-page">
+    <div class="container">
+      <h1>Welcome back !</h1>
 
-      <div class="contact-wrapper">
-        <div class="contact-txt">
-          <h2>Connect with us</h1>
-            <p>Fill out the form below to get in touch with us, You can also email us at <span>hello@xtracto.tech</span>
-              or call us on <span>+234 (000) 004 03110</span>.</p>
-        </div>
+      <div class="form-wrapper">
+        <form action="">
+          <label for="email">Email Address</label>
+          <input type="email" spellcheck="true" name="email" id="email" required pattern="^[a-z 0-9 .com]{3,15}$"
+            title="Enter a valid Email">
 
-        <div class="contact-form">
-          <form action="">
-            <label for="name">Name</label>
-            <input type="email" spellcheck="true" name="email" id="name" required
-              pattern="^?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$" placeholder="Name" title="Enter a valid Name">
+          <label for="password">Password</label>
+          <input type="password" spellcheck="true" name="password" id="password" required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,25}$">
 
-            <label for="email">Work Email</label>
-            <input type="email" spellcheck="true" name="email" id="email" required pattern="^[a-z 0-9 .com]{3,15}$"
-              placeholder="Work Email" title="Enter a valid Email">
+          <a href="./reset-password.html" class="forgot-password">Forgot password?</a>
+          <button type="submit" class="form-btn">Log in</button>
 
-            <label for="phone-number">Phone Number</label>
-            <input type="password" spellcheck="true" name="password" id="password" required
-              pattern="^(?=.*[0-9]){8,25}$" placeholder="John Doe">
-
-            <div class="country-inputfield">
-              <label for="country">Country</label>
-              <input type="email" spellcheck="true" name="email" id="country" required
-                pattern="^?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$" placeholder="Name" title="Enter a valid Country">
-            </div>
-
-            <label for="message">Anything you would like to tell us</label>
-            <textarea name="message" id="message" cols="73" rows="13" placeholder="Enter Your Message"
-              class="input-field" required></textarea>
-
-            <button type="submit" class="form-btn">Contact Us</button>
-
-          </form>
-        </div>
-
-      </div>
-
-      <div class="icon-image">
-        <img src="./images/Frame 75.png" alt="Icon image">
+          <p>Dont't have an account?<span><a href="./register.html">Sign Up</a></span></p>
+        </form>
       </div>
     </div>
   </main>
+  <!-- END main page -->
 
-  <!-- PAGE FOOTER -->
-  <!-- FOOTER -->
+  <!-- Page Footer -->
   <footer>
 
     <!-- 1st footer content -->

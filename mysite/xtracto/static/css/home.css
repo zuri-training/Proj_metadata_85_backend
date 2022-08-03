@@ -1,0 +1,651 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: "Poppins";
+    height: 100%;
+}
+
+/* navbar */
+/* STYLING THE NAV BAR */
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* The z-index property with the value of 1 makes sure the navbar displays over any other element on the web page. That's how you make a sticky navbar.*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.6rem 5rem;
+    background-color: var(--bg-color);
+    /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); */
+    width: 100vw;
+}
+
+/* to make The nav menu items to be side by side, not on top of each other. I will be doing that with Flexbox. */
+
+nav h1 {
+    width: 194px;
+    height: 60px;
+    /* left: 70px; */
+    /* top: 18px; */
+    /* color: var(--primary-color-300); */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    /* line-height: 60px; */
+    color: white;
+}
+
+nav a {
+    /* color: var(--primary-color-300); */
+    transition: var(--transition);
+    height: 24px;
+    font-family: 'Poppins';
+    /*Lexend - try it*/
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    border-top: none;
+}
+
+nav a:hover {
+    color: #68788F;
+    /* var(--secondary-color); */
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    list-style-type: none;
+
+}
+
+nav ul li {
+    padding: 9px;
+}
+
+/* styling the hamburger menu */
+.burger-menu {
+    /* color: var(--primary-color); */
+    /* color: #fff; */
+    font-size: 2rem;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    display: none;
+}
+
+.signup-link {
+    /* margin-left: auto; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 17px;
+}
+
+.sign-in-btn {
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    justify-content: center;
+    padding: 1.6rem 1rem;
+    width: 100px;
+    height: 24px;
+    border: 2px solid #743CA8;
+    ;
+    border-radius: 6px;
+    font-family: "Poppins";
+    font-style: normal;
+    /* font-weight: 400; */
+    font-size: 15px;
+    line-height: 24px;
+    color: white;
+    transition: var(--transition);
+}
+
+.sign-in-btn:active {
+    transform: translate(-50%, 3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.sign-in-btn:hover {
+    background: #743CA8;
+    color: #ffffff;
+    border: none;
+}
+
+.sign-in-btn:focus {
+    outline: none;
+}
+
+.register-btn {
+    font-family: "Poppins";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 10px;
+    width: 250px;
+    height: 55px;
+    /* Secondary/400 */
+    background: #743CA8;
+    border-radius: 8px;
+    /* font-family: 'Lexend'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+    color: #ffffff;
+    transition: var(--transition);
+}
+
+.register-btn:active {
+    transform: translate(-50%, 3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.register-btn:hover {
+    background: #68788F;
+    color: #ffffff;
+    border: none;
+}
+
+.register-btn:focus {
+    outline: none;
+}
+
+/* First section/ top section code goes here */
+.first-section {
+    background-image: url('../images-homepage/hold-tablet.png');
+    /* code below makes bkg image fit whole div */
+    background-size: 100% 100%;
+}
+
+.first-inner {
+    padding: 6em;
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    color: white;
+}
+
+/* second section code goes here */
+.second-section {
+    display: grid;
+    padding: 4em;
+    grid-template-areas:
+        'g g h h'
+        'i i i i'
+        'k l m n';
+    gap: 10px;
+}
+
+.top-left {
+    grid-area: g;
+}
+
+.top-right {
+    margin-top: 3em;
+    margin-left: 3em;
+    grid-area: h;
+    color: #1D3557;
+}
+
+.middle {
+    grid-area: i;
+    margin: auto;
+    width: 60%;
+    margin-top: 4em;
+    text-align: center;
+    color: #1D3557;
+}
+
+.mid-one img,
+.mid-two img,
+.mid-three img,
+.mid-four img {
+    filter: invert(27%) sepia(16%) saturate(6721%) hue-rotate(251deg) brightness(91%) contrast(87%);
+}
+
+button {
+    margin-top: 40px;
+    font-family: "Poppins";
+    background-color: #743CA8;
+    color: white;
+    border-radius: 4px;
+    height: 45px;
+    width: 150px;
+    border: none;
+}
+
+.top-right button {
+    margin-top: 40px;
+    font-family: "Poppins";
+    background-color: white;
+    color: #743CA8;
+    border-radius: 4px;
+    height: 45px;
+    width: 150px;
+    border: 1px solid #743CA8;
+}
+
+.files-icon {
+    /* margin-left: 4em; */
+    margin-bottom: 8em;
+    text-align: center;
+    display: flex;
+    color: #1D3557;
+}
+
+.files-icon div {
+    width: 25%;
+}
+
+/* Third section starts here */
+.third-section {
+    background-color: #F6F5F5;
+    display: grid;
+    grid-template-areas:
+        'o p q'
+        'o r s';
+    gap: 15px;
+    padding-bottom: 3em;
+}
+
+.third-section img {
+    /* changes color of icons to purpole */
+    filter: invert(27%) sepia(16%) saturate(6721%) hue-rotate(251deg) brightness(91%) contrast(87%);
+}
+
+.side-left {
+    padding-top: 9em;
+    padding-left: 4em;
+    padding-bottom: 3em;
+    padding-right: 5em;
+    grid-area: o;
+    color: #1D3557;
+}
+
+.side-left button {
+    width: 180px;
+}
+
+.side-right-one {
+    padding-top: 3em;
+    padding-right: 4em;
+    text-align: center;
+    color: #1D3557;
+    grid-area: p;
+}
+
+.side-right-two {
+    padding-top: 3em;
+    padding-right: 4em;
+    text-align: center;
+    color: #1D3557;
+    grid-area: q;
+}
+
+.side-right-three {
+    padding-top: 3em;
+    padding-right: 4em;
+    text-align: center;
+    color: #1D3557;
+    grid-area: r;
+}
+
+.side-right-four {
+    padding-top: 3em;
+    padding-right: 4em;
+    text-align: center;
+    color: #1D3557;
+    grid-area: s;
+}
+
+
+/* Fourth section starts here */
+.fourth-section {
+    padding-top: 3em;
+    text-align: center;
+    padding-bottom: 4em;
+}
+
+.fourth-section button {
+    width: 180px;
+}
+
+.inner {
+    margin: auto;
+    width: 70%;
+    padding-top: 4em;
+    padding-bottom: 3em;
+    color: white;
+    border-radius: 15px;
+    background-image: url(/images/finger-touch.jpg);
+    background-repeat: no-repeat;
+    /* code below makes bkg image fit whole div */
+    background-size: 100%;
+}
+
+/* footer code starts here */
+footer {
+    font-family: "Poppins";
+    background-color: #1D3557;
+    color: white;
+
+}
+
+.bottom {
+    padding-top: 8em;
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-bottom: 1em;
+    display: grid;
+    grid-template-areas:
+        'a b c d e'
+        'f f f f f';
+}
+
+.bottom a {
+    font-size: 14px;
+}
+
+.footer-title {
+    font-size: 24px;
+}
+
+.bl {
+    padding-right: 8px;
+    grid-area: a;
+    /* display: inline; */
+    font-size: 14px;
+}
+
+.bl-c {
+    padding-right: 8px;
+    grid-area: b;
+}
+
+.br-c {
+    padding-right: 8px;
+    grid-area: c;
+}
+
+.br {
+    padding-right: 8px;
+    grid-area: d;
+}
+
+.br-e {
+    grid-area: e;
+}
+
+input[type=email],
+select {
+    width: 100%;
+    padding: 10px 20px;
+    font-family: "Poppins";
+    color: #2f3338;
+    background-color: #77869A;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #77869A;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.fa {
+    margin: 5px 2px;
+    width: 20px;
+    text-align: center;
+    color: white;
+}
+
+/* .fa-envelope {
+    font-size: 20px;
+} */
+.end {
+    grid-area: f;
+    margin-top: 120px;
+    /* padding-bottom: -50px; */
+}
+
+.r-end {
+    float: right;
+    /* padding-right: 4em; */
+}
+
+.l-end p {
+    /* padding-left: 4em; */
+    font-size: 12px;
+    float: left;
+}
+
+.l-end a {
+    padding-left: 20px;
+}
+
+/* making navbar responsive */
+@media screen and (max-width: 770px) {
+
+    /* changes reflects on screen with a width of 770px and below */
+    nav {
+        padding: 1.5rem 1rem;
+    }
+
+    /* on smaller device,the nav items needs to be on top each other and they need to be hidden,so to do that i built a hamburger menu and it will be hidden initially*/
+    nav ul {
+        position: fixed;
+        background-color: #F1F5F9;
+        flex-direction: column;
+        top: 90px;
+        left: 10%;
+        width: 80%;
+        text-align: center;
+        transform: translateX(120%);
+        transition: transform 0.5s ease-in;
+    }
+
+    nav ul li {
+        margin: 8px;
+    }
+
+    nav a {
+        color: var(--primary-color-300);
+        transition: var(--transition);
+        height: 24px;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 19px;
+        line-height: 24px;
+        border-top: none;
+    }
+
+    nav a:hover {
+        color: var(--secondary-color);
+        border-bottom: 1px solid var(--secondary-color);
+    }
+
+    .signup-link {
+        position: fixed;
+        background-color: #F1F5F9;
+        flex-direction: column;
+        top: 320px;
+        left: 10%;
+        width: 80%;
+        text-align: center;
+        transform: translateX(120%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .signup-link .sign-up-btn,
+    .register-btn {
+        margin: 8px;
+    }
+
+    /* to unhide the hamburger menu do the below */
+    .burger-menu {
+        display: block;
+    }
+
+    nav ul.show {
+        transform: translateX(0);
+    }
+
+    .signup-link.show {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .first-inner {
+        width: 100%;
+    }
+
+    .second-section {
+        display: block;
+        text-align: center;
+    }
+
+    .top-right {
+        text-align: center;
+        padding: 1em;
+        margin: 0;
+    }
+
+    .middle {
+        width: 100%;
+    }
+
+    .mid-one,
+    .mid-two,
+    .mid-three,
+    .mid-four {
+        padding-left: 1em;
+    }
+
+    .third-section {
+        display: block;
+        text-align: center;
+    }
+
+    .side-right-one,
+    .side-right-two,
+    .side-right-three,
+    .side-right-four {
+        padding: 1em;
+    }
+
+    .inner {
+        width: 100%;
+        padding: 1em;
+    }
+
+    .bottom {
+        display: block;
+        padding-top: 4em;
+        padding-bottom: 5px;
+        padding-left: 1em;
+    }
+
+    .br {
+        padding-top: 4px;
+        padding-left: 1em;
+    }
+
+    .email {
+        padding-bottom: 0px;
+    }
+
+    .blg {
+        padding-left: 1em;
+    }
+
+    .bl-c {
+        padding-top: 0px;
+        padding-left: 1em;
+        padding-bottom: 0px;
+        padding-top: 4px;
+    }
+
+    .br-c {
+        padding-top: 0px;
+        padding-left: 1em;
+        padding-top: 4px;
+    }
+
+    .br-e {
+        padding-left: 1em;
+        padding-top: 4px;
+    }
+
+    .end {
+        margin-top: 40px;
+        padding-top: 8px;
+        display: inline-block;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-left: 1em;
+    }
+
+    .r-end {
+        float: none;
+        padding-bottom: 8px;
+    }
+
+    .l-end {
+        float: none;
+    }
+
+    .l-end a {
+        /* float: inline-end; */
+        padding-left: 20px;
+    }
+}
+
+
+/* navbar */
+/* .menu {
+    overflow: hidden;
+    color: white;
+    display: flex;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 17px;
+}
+
+.nav-login-btn {
+
+    font-family: "Poppins";
+    background-color: transparent;
+    color: white;
+    border-radius: 4px;
+    height: 45px;
+    width: 150px;
+    border: 2px solid #743CA8;
+}
+
+.nav-feature-btn {
+    width: 200px;
+} */
