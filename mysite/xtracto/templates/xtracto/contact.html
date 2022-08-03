@@ -9,10 +9,10 @@
   <!-- favicon -->
   <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
   <!--  -->
-
+  {% load static %}
   <!-- css custom link -->
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/footer.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
   <!--  -->
 
   <!-- font-awesome -->
@@ -32,7 +32,7 @@
 <body>
   <!-- Navbar -->
   <nav>
-    <h1>XTRACTO</h1>
+    <a href="{% url 'xtracto:home' %}"><h1>XTRACTO</h1></a>
     <ul class="ul-nav">
       <li><a href="#about" class="nav-link">Home</a></li>
       <li><a href="./img_about/About-us.html" class="nav-link">About Us</a></li>
