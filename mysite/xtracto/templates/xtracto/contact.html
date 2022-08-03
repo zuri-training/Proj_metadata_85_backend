@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XTRACTO: Contact page</title>
+  
+
+   <!-- LOAD THE STATIC FILES -->
+   {% load static %}
+   <!-- favicon -->
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+  <!--  -->
+
+  <!-- css custom link -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <!--  -->
+
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comforter&family=Poppins&family=Inter:wght@200,300,400,500,600,700,800,900&family=Quintessential&display=swap"
+    rel="stylesheet">
+  <!--  -->
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <h1>XTRACTO</h1>
+    <ul class="ul-nav">
+      <li><a href="#about" class="nav-link">Home</a></li>
+      <li><a href="./img_about/About-us.html" class="nav-link">About Us</a></li>
+      <li><a href="./contact.html" class="nav-link">Contact Us</a></li>
+      <li><a href="#contact" class="nav-link">FAQs</a></li>
+    </ul>
+
+    <div class="signup-link">
+      <a href="./login.html" class="sign-in-btn nav-btn"> Sign in </a>
+      <a href="./register.html" class="register-btn nav-btn">Get exclusive features</a>
+    </div>
+
+    <button class="burger-menu" id="burger-menu">
+      <ion-icon class="bars" name="menu-outline"></ion-icon>
+    </button>
+  </nav>
+  <!-- End of Nav -->
+
+
+  <!-- Main page -->
+  <main>
+    <div class="container-page">
+
+      <div class="contact-wrapper">
+        <div class="contact-txt">
+          <h2>Connect with us</h1>
+            <p>Fill out the form below to get in touch with us, You can also email us at <span>hello@xtracto.tech</span>
+              or call us on <span>+234 (000) 004 03110</span>.</p>
+        </div>
+
+        <div class="contact-form">
+          <form action="">
+            <label for="name">Name</label>
+            <input type="email" spellcheck="true" name="email" id="name" required
+              pattern="^?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$" placeholder="Name" title="Enter a valid Name">
+
+            <label for="email">Work Email</label>
+            <input type="email" spellcheck="true" name="email" id="email" required pattern="^[a-z 0-9 .com]{3,15}$"
+              placeholder="Work Email" title="Enter a valid Email">
+
+            <label for="phone-number">Phone Number</label>
+            <input type="password" spellcheck="true" name="password" id="password" required
+              pattern="^(?=.*[0-9]){8,25}$" placeholder="John Doe">
+
+            <div class="country-inputfield">
+              <label for="country">Country</label>
+              <input type="email" spellcheck="true" name="email" id="country" required
+                pattern="^?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$" placeholder="Name" title="Enter a valid Country">
+            </div>
+
+            <label for="message">Anything you would like to tell us</label>
+            <textarea name="message" id="message" cols="73" rows="13" placeholder="Enter Your Message"
+              class="input-field" required></textarea>
+
+            <button type="submit" class="form-btn">Contact Us</button>
+
+          </form>
+        </div>
+
+      </div>
+
+      <div class="icon-image">
+        <img src="./images/Frame 75.png" alt="Icon image">
+      </div>
+    </div>
+  </main>
+
+  <!-- PAGE FOOTER -->
+  <!-- FOOTER -->
+  <footer>
+
+    <!-- 1st footer content -->
+    <div class="footer-container">
+
+      <div class="footer-one">
+        <p class="footer-title">XTRACTO</p>
+        <p><a href="#" class="fa fa-map-marker" style="font-size:18px"></a>34, Kingston Rd, Lagos</p>
+
+        <p><a href="#" class="fa fa-phone" style="font-size:18px"></a>(+234) 811745621</p>
+
+        <p><a href="#" class="fa fa-envelope"></a>info@extracto.tech</p>
+
+      </div>
+
+      <!-- 2nd footer content -->
+      <div class="footer-two">
+        <p class="footer-title">About Us</p>
+        <ul>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="https://www.google.com">Services</a>
+          </li>
+          <li>
+            <a href="#">Career</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 3rd footer content -->
+      <div class="footer-three">
+        <p class="footer-title">Useful Links</p>
+        <ul>
+          <li><a href="#">Privacy and Policy</a></li>
+          <li><a href="#">Terms & Condition</a></li>
+          <li><a href="#">Disclaimer</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- 4th footer content -->
+      <div class="footer-four">
+        <p class="footer-title">Resources</p>
+        <ul>
+          <li>
+            <a href="#">Developer API</a>
+          </li>
+          <li>
+            <a href="#">Tools</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 5th footer content -->
+      <div class="footer-five">
+        <p>Subscribe to our newsletter</p>
+        <input type="email" name="" id="" placeholder="Email Address">
+        <a href="#" class="fa-solid fa-brands fa-arrow-right"></a>
+      </div>
+
+    </div>
+
+
+    <div class="end">
+      <!-- div at the right with social media icons -->
+      <div class="r-end" id="r-end">
+        <p id="end-p-tag">&copy;<span>2022 Xtracto. All rights reserved.</span> <a href="#">Privacy Policy</a> <a
+            href="#">Cookie
+            Policy</a></p>
+      </div>
+
+      <!-- div at the left end with copyright -->
+      <div class="l-end" id="l-end">
+        <a href="#" class="fa fa-brands fa-facebook-f"></a>
+        <a href="#" class="fa fa-brands fa-twitter"></a>
+        <a href="#" class="fa fa-brands fa-linkedin"></a>
+        <a href="#" class="fa fa-brands fa-instagram"></a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Website scripts -->
+  <script src="{% js/login.js %}"></script>
+
+  <!-- Ion icons scripts -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- LOAD THE STATIC FILES -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Homepage Xtracto</title>
+</head>
+
+<body>
+    <main>
+        <!-- Top section with description of site starts here -->
+
+        <div class="first-section">
+            <!-- navbar starts here -->
+            <nav>
+                <a href="{% url 'xtracto:home' %}"><h1>XTRACTO</h1></a>
+                <ul class="ul-nav">
+                    <li><a href="{% url 'xtracto:home' %}" class="nav-link">Home</a></li>
+                    <li><a href="{% url 'xtracto:about' %}" class="nav-link">About Us</a></li>
+                    <li><a href="{% url 'xtracto:contact' %}" class="nav-link">Contact Us</a></li>
+                    <li><a href="{% url 'xtracto:contact' %}" class="nav-link">FAQs</a></li>
+                </ul>
+                <div class="signup-link">
+                    <a href="{% url 'xtracto:loginfrontend' %}" class="sign-in-btn nav-btn"> Sign in </a>
+                    <a href="{% url 'xtracto:registerfrontend' %}" class="register-btn nav-btn">Get exclusive features</a>
+                </div>
+                <button class="burger-menu" id="burger-menu">
+                    <ion-icon class="bars" name="menu-outline"></ion-icon>
+                </button>
+            </nav>
+            <!-- End of Nav -->
+
+            <div class="first-inner">
+                <h1>Unleash the power of data with our data extraction services</h1>
+                <p>Upload, extract, process and centralize your file's metadata.</p>
+                <p>Sign up to get access to amazing features.</p>
+
+                <button>Get started</button>
+            </div>
+            <!-- navbar goes here -->
+
+        </div>
+
+        <!-- Second section description on metadata extraction -->
+        <div class="second-section">
+            <div class="top-left">
+                <img src="{% static 'images-homepage/bricks.png' %}" alt="bricks-game" style="width: 98%; height:98%; border-radius: 15px;">
+            </div>
+            <div class="top-right">
+                <h1>Data Extraction made easy</h1>
+                <p>Xtracto is the safe, secure, fast and reliable software to easily upload image, PDF, CSV, and JSON
+                    files of any size and extract their metadata. It displays extracted metadata and allows users to
+                    edit, save, export, download, and share files and metadata. You can do more with Xtracto by
+                    converting files, resizing picture content, and many more!</p>
+                <button>Learn More</button>
+            </div>
+            <div class="middle">
+                <h1>Any data, any source, we pull the validated data for you</h1>
+                <p>If you need to extract reliable and validated data from your file, we got you covered. We extract
+                    information from a variety of documents, including</p>
+            </div>
+        </div>
+
+        <div class="files-icon">
+            <div class="mid-one">
+                <img src="{% static 'images-homepage/image-file-icon.svg' %}" alt="" style="width: 50px; height:50px">
+                <p>IMAGES</p>
+                <p>(png, jpg, jpeg, svg, gif)</p>
+            </div>
+            <div class="mid-two">
+                <img src="{% static 'images-homepage/csv-file-icon.svg' %}" alt="" style="width: 50px; height:50px">
+                <p>CSV</p>
+            </div>
+            <div class="mid-three">
+                <img src="{% static 'images-homepage/pdf-files-icon.svg' %}" alt="" style="width: 50px; height:50px">
+                <p>PDF</p>
+            </div>
+            <div class="mid-four">
+                <img src="{% static 'images-homepage/json-file-icon.svg' %}" alt="" style="width: 50px; height:50px">
+                <p>JSON</p>
+            </div>
+        </div>
+
+        <div class="third-section">
+            <div class="side-left">
+                <h1>We have other features that will excite you</h1>
+                <p>There are more amazing features accessible to you when you sign up.</p>
+                <button>Get exclusive features</button>
+            </div>
+            <div class="side-right-one">
+                <img src="{% static 'images-homepage/file-data-exchange-icon.svg' %}" alt="File" style="width: 50px; height:50px">
+                <h3>File Conversion</h3>
+                <p>The file converter will allow you to convert jpg to png, png to jpg or other file types. Upload your
+                    file, change the file type from your browser, and download.</p>
+            </div>
+            <div class="side-right-two">
+                <img src="{% static 'images-homepage/paint-brush-drawing-icon.svg' %}" alt="Color-brush" style="width: 50px; height:50px">
+                <h3>Generate Color Pallete</h3>
+                <p>This simple colour pallete generator extracts colours from any uploaded photo or file. Thrn copy the
+                    HEX codes from the colour pallete app with a simple click!</p>
+            </div>
+            <div class="side-right-three">
+                <img src="{% static 'images-homepage/data-icon.svg' %}" alt="database" style="width: 50px; height:50px">
+                <h3>Extra Metadata</h3>
+                <p>Extract the metadata recorded behind files you upload, ranging from file size and modification
+                    history to the software tools used to create them.</p>
+            </div>
+            <div class="side-right-four">
+                <img src="{% static 'images-homepage/small-screen-arrow-icon.svg' %}" alt="Resize" style="width: 50px; height:50px;">
+                <h3>Resize file</h3>
+                <p>This resize option allows you to reduce the size of a file that either exists on Xtracto or one you
+                    uploaded. You can enlarge or minimize files.</p>
+            </div>
+        </div>
+
+        <div class="fourth-section">
+            <div class="inner">
+                <h1>Become part of our community and get access to unlimited features</h1>
+                <button>Get exclusive features</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer code starts here -->
+    <footer>
+        <div class="bottom">
+            <div class="bl">
+                <p class="footer-title">XTRACTO</p>
+                <p><a href="#" class="fa fa-map-marker" style="font-size:18px"></a>34, Kingston Rd, Lagos</p>
+                <p><a href="#" class="fa fa-phone" style="font-size:18px"></a>(+234) 811745621</p>
+                <p><a href="#" class="fa fa-envelope"></a>info@extracto.tech</p>
+            </div>
+            <div class="bl-c">
+                <p class="footer-title">About Us</p>
+                <p><a href="{% url 'xtracto:about' %}">About</a></p>
+                <p><a href="#">Services</a></p>
+                <p><a href="#">Career</a></p>
+                <p><a href="#">Contact</a></p>
+            </div>
+            <div class="br-c ">
+                <p class="footer-title">Useful Links</p>
+                <p><a href="#">Privacy and Policy</a></p>
+                <p><a href="#">Terms & Condition</a></p>
+                <p><a href="#">Disclaimer</a></p>
+                <p><a href="#">Support</a></p>
+                <p><a href="#">FAQ</a></p>
+            </div>
+            <div class="br">
+                <p class="footer-title">Resources</p>
+                <p><a href="#">Developer API</a></p>
+                <p><a href="#">Tools</a></p>
+            </div>
+
+            <div class="br-e">
+                <p>Subscribe to our newsletter</p>
+                <input type="email" name="" id="" placeholder="Email Address">
+            </div>
+
+            <div class="end">
+                <!-- div at the right with sovial media icons -->
+                <div class="r-end">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                </div>
+
+                <!-- div at the left end with copyright -->
+                <div class="l-end">
+                    <p>&copy; 2020 Xtracto. All rights reserved. <a href="#">Privacy Policy</a> <a href="#">Cookie
+                            Policy</a></p>
+                </div>
+
+
+                <!-- <p class="end">&copy;Copyright 2018 Huddle. All rights reserved</p> -->
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script type="text/javascript" src="{% static 'js/homepage.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
+
+
+<!-- <nav class="menu">
+    <h1>XTRACTO</h1>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Contact Us</a>
+
+    <div class="buttons">
+        <button class="nav-login-btn">Sign in</button>
+        <button class="nav-feature-btn">Get exclusive features</button>
+    </div>
+
+</nav> -->
