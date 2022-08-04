@@ -47,11 +47,9 @@ i{
 
 
 /* CLASS SELECTORS NAV*/
-.btn-mobile{
-    
+#js-btn{
     display: none;
-    position: absolute;
-    top: 0;
+    color: #743CA8;
 }
 .banner_bg{
     background-image: url('../images/home_banner.png');
@@ -655,11 +653,20 @@ color: #ffffff;
        width: 80%;
    }
 }
+
 @media only screen and (max-width:770px) {
+    #js-btn{
+        display: inline-block;
+        font-size: 50px;
+        color: #435773;
+        position: absolute;
+        right: 6.94846555%;
+        top: 1.44759699%;
+
+    }
+    
     .nav-right{
-        width: 50%;
-        margin-left: 10%;
-        
+        display: none;
     }
     .banner_left{
         width: 80%;
@@ -681,6 +688,7 @@ color: #ffffff;
         display: inline-block;
     }
 }
+
 @media only screen and (max-width:680px) {
     .bottom_rows > h1, .news{
         font-size: 25px;
@@ -735,11 +743,7 @@ color: #ffffff;
     }
 }
 
-@media only screen and (max-width:600px) {
-    .nav-right{
-        display: none;
-    }
-}
+
 
 @media only screen and (max-width:520px) {
 .social{
@@ -760,406 +764,3 @@ color: #ffffff;
         right: -5px;
     }
 }
-/* @media only screen and (max-width:520px) {
-    .social{
-        margin-top: 250px;
-    }
-
-
-} */
-/* 
-
-
-
-
-
-@media only screen and (max-width: 1150px) {
-    
-
-    nav{
-        height: 70px;
-    }
-
-    h3{
-        line-height: 50px;
-        font-size: 35px;
-    }
-    h5{
-        margin: 4px;
-        
-        font-size: 17px;
-    }
-    .banner_area{
-        height: 500px;
-        padding-bottom: 0;
-    }
-    
-    .banner_left{
-    width: 40.9380428%;
-    }
-    .banner_left > p{
-        font-size: 15px;
-        line-height: 28px;
-    }
-    
-    .banner_img{
-        height: 100%;
-        left: 61.478286%;
-        top: -7px;
-        z-index: -1;
-    }
-
-    .logo{
-        font-size: 30px;
-        line-height: 60px;
-        margin-top: 3px;
-    }
-    
-    .nav-mid{
-    margin: 5px 0 1.44759699% 20.4400695%;
-    }
-    
-    .nav-right{
-    width: 22.2929936%;
-    margin: 5px 0 1.44759699% 8.80138969%;;
-    }
-    
-    .nav-btn-white{
-    border-radius: 5px;
-    padding: 4px 8px;
-    height: 55px;
-    margin: 0 0 0 0;
-    margin-left: 10px;
-    }
-    
-    .nav-btn-purple{
-        border-radius: 3px;
-        padding: 4px 8px;
-        width: 50px;
-    }
-    
-    .mission, .story{
-        height: 450px;
-        padding: 40px  8.97510133%;
-    }
-    
-
-
-} */
-
-
-
-/* 
-
-
-@media only screen and (min-width:1200px) and (max-width: 1650px) {
-    nav{
-        height: 70px;
-    }
-
-    h3{
-        line-height: 50px;
-        font-size: 35px;
-    }
-    h5{
-        margin: 4px;
-        
-        font-size: 17px;
-    }
-    .banner_area{
-        height: 500px;
-        padding-bottom: 0;
-    }
-    
-    .banner_left{
-    width: 40.9380428%;
-    }
-    .banner_left > p{
-        font-size: 15px;
-        line-height: 28px;
-    }
-    
-    .banner_img{
-        height: 100%;
-        left: 61.478286%;
-        top: -7px;
-        z-index: -1;
-    }
-
-    .logo{
-        font-size: 30px;
-        line-height: 60px;
-        margin-top: 3px;
-    }
-    
-    .nav-mid{
-    margin: 5px 0 1.44759699% 20.4400695%;
-    }
-    
-    .nav-right{
-    width: 22.2929936%;
-    margin: 5px 0 1.44759699% 8.80138969%;;
-    }
-    
-    .nav-btn-white{
-    border-radius: 8px;
-    padding: 8px 10px;
-    height: 55px;
-    margin: 0 6.23376623% 0 0;
-    }
-    
-    .nav-btn-purple{
-        border-radius: 3px;
-        padding: 8px 10px;
-        border-radius: 8px;
-    }
-    
-    .mission, .story{
-        height: 450px;
-        padding: 40px  8.97510133%;
-    }
-    
-
-} */
-
-
-
-/* @media only screen and (min-width: 1700px) {
-
-    h3{
-        font-weight: 500;
-        font-family: 'Lexend', Arial, sans-serif;
-        color: #435773;
-        line-height: 80px;
-        font-size: 64px;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    h5{
-        display: inline-block;
-        margin: 7px;
-        font-family: 'Lexend', sans-serif;
-        font-weight: 400;
-        font-size: 20px;
-    }
-    main{
-        height: 725px;
-        position: relative;
-    }
-    
-    i{
-        color: #FFFFFF;
-        font-size: 20px;
-    }
-    
-    
-    .logo{
-        margin: 25px 353px 25px 120px;
-    }
-    
-    .nav-mid{
-    margin: 42.5px 153px 43.5px 0;
-    }
-    
-    .nav-right{
-    margin: 27.5px 0 27.5px 0;
-    }
-    
-    .nav-btn-white{
-    font-size: 20px;
-    margin: 0 24px 0 0;
-    }
-    
-    .nav-btn-purple{
-        font-size: 20px;
-        border-radius: 8px;
-    }
-    
-    .banner_area{
-        position: relative;
-        z-index: -2;
-        height: 725px;
-        padding-bottom: 8%;
-        background-color: #F7F5F5;
-    }
-    
-    .banner_left{
-    margin: 160px 0 0 155px;
-    width: 707px;
-    }
-    .banner_left > p{
-        font-size: 24px;
-        line-height: 28px;
-    }
-    
-    .banner_img{
-        height: 653px;
-        left: 1079px;
-        top: 0;
-    }
-    
-    .row-2{
-        height: 308px;
-        padding: 64px 0;
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 30px;
-        margin-bottom: 128px;
-    }
-    
-    .row-2 > p{
-        width: 850px;
-        height: 76px;
-        font-size: 32px;
-        font-weight: 600;
-        margin-bottom: 16px;
-        line-height: 38px;
-    }
-    
-    .row-2 > span{
-        display: inline-block;
-        width: 1092px;
-        font-size: 24px;
-        font-weight: 500;
-        margin: 0;
-        line-height: 30px;
-    }
-    
-    .mission, .story{
-        position: relative;
-        height: 581px;
-        padding: 0  120px;
-        margin-bottom: 80px;
-    }
-    
-    .story > div{
-        vertical-align: middle;
-
-    }
-    .story_img{
-        width: 665px;
-        margin: 0;
-    }
-    
-    .story_right{
-        position: absolute;
-        display: inline-block;
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 36px;
-        width: 671px;
-        right: 0;
-        padding: 125.5 0;
-        padding-left: 0;
-    }
-    
-    .mission_left > h3, .story_right > h3{
-        font-weight: 700;
-        font-size: 64px;
-        margin-bottom: 32px;
-    }
-    .mission_left > span{
-    font-size: 24px;
-        font-weight: 500;
-    }
-
-    .purple{
-        color: #743CA8;
-    }
-    
-    .mission_left{
-        position: relative;
-        width: 671px;
-        top: 105.5px;
-        padding: 0 0 0 0;
-    }
-    .mission_img{
-        position: absolute;
-        right: 120px;
-        width: 665px;
-    }
-    
-    .social{
-    
-        width: 1488px;
-        margin: auto;
-        border-radius: 12px;
-        padding: 70px 0px;
-        margin-bottom: 80px;
-        color: #ffffff;
-        text-align: center;
-        font-size: 48px;
-        font-weight: 600;
-    }
-    .social > p{
-        width: 800px;
-        margin: auto;
-        line-height: 54px;
-    }
-    
-    .bottom{
-        padding: 128px 0 10px 120px;
-        font-size: 20px;
-    }
-    .bottom_rows{
-        position: relative;
-        display: inline-block;
-        width: inherit;
-        margin-left: 0;
-        margin-right: 100px;
-    }
-    
-    .logo_bottom{
-        font-size: 32px;
-    }
-    
-    .wider_bottom{
-        position: relative;
-        width: inherit;
-        margin-right: 0;
-    }
-    
-    .news{
-        font-size: 20px;
-    }
-
-    .email_input{
-        position: relative;
-        z-index: 1;
-        width: 344px;
-        height: 40px;
-        padding: 15px;
-        border-radius: 8px;
-    }
-
-    .form{
-        position: relative;
-    }
-    
-    .submit{
-    font-size: 23px;
-    top: 7px;
-    right: 15px;
-    z-index: 3;
-    }
-    
-    
-    
-    .last_div{
-        margin: 40px 8.97510133% 10px 20px;
-    }
-    
-    .last_div > span{
-        margin: 0 30px 0 0;
-    }
-    
-    .brands{
-        position: relative;
-        float: right;
-        word-spacing: 20px;
-    }
-    
-    
-    
-}
- */

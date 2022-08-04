@@ -42,17 +42,16 @@
         </div>
 
         <div class="nav-right">
-            <a href="{% url 'xtracto:loginfrontend' %}"><button class="nav-btn-white" >
+            <a href="{% url 'xtracto:login' %}"><button class="nav-btn-white" >
                 Sign in
             </button></a>
-            <a href="{% url 'xtracto:registerfrontend' %}"><button class="nav-btn-purple">
+            <a href="{% url 'xtracto:register' %}"><button class="nav-btn-purple">
                 Get exclusive features
             </button></a>
-            <!-- <div class="btn-mobile">
-                <i class="fa-solid fa-bars" id="js-effect"></i>
-            </div> -->
+            
         
         </div>
+            <i class="fa-solid fa-bars" id="js-btn"></i>
     </nav>
     
     <!-- MAIN CONTENT -->
@@ -155,7 +154,7 @@ with            the use of seamless and easy-to-use plaforms
 <!-- FOOTER -->
 <footer class="bottom">
     <div class="bottom_rows first">
-        <h1 class="logo_bottom">XTRACTO</h1>
+        <a href="{% url 'xtracto:home' %}"><h1 class="logo_bottom">XTRACTO</h1></a>
         <p>
             34, Kingston Rd, Lagos
         </p>
@@ -168,45 +167,67 @@ with            the use of seamless and easy-to-use plaforms
     </div>
     <div class="bottom_rows">
         <h1 class="logo_bottom">About Us</h1>
-        <p>
-            About
-        </p>
+        <a href="{% url 'xtracto:about' %}">
+            <p>
+                About
+            </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
         <p>
             Services
         </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
         <p>
             Careers
         </p>
+        </a>
+        <a href="{% url 'xtracto:contact' %}"></a>
         <p>
             Contact
         </p>
     </div>
+    </div>
     <div class="bottom_rows">
         <h1 class="logo_bottom">Useful Links</h1>
+        <a href="{% url 'xtracto:about' %}">
         <p>
             Privacy Policy
         </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
         <p>
             Terms and Conditions
         </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
         <p>
             Disclaimer
         </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
         <p>
             Support
         </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
         <p>
             FAQs
         </p>
+        </a>
     </div>
     <div class="bottom_rows">
         <h1 class="logo_bottom">Resources</h1>
+        <a href="{% url 'xtracto:about' %}">
         <p>
             Developer Api
         </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
         <p>
             Tools
         </p>
+        </a>
     </div>
     <div class=" wider_bottom">
         <p class="news">
