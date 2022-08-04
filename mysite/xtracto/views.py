@@ -25,8 +25,11 @@ def login(request):
 def dashboard(request):
     return render(request, 'xtracto/dashboard.html')
 
-def dashboardfrontend(request):
-    return render(request, 'xtracto/dashboardfrontend.html')
+def collections(request):
+    return render(request, 'xtracto/collections.html')
+
+def features(request):
+    return render(request, 'xtracto/features.html')
 
 
 

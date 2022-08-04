@@ -1,4 +1,8 @@
-
+a:active{
+    width: 100%;
+    background-color: #1D3557;
+    color: #FFFFFF;
+}
 .dash-nav{
     display: inline-block;
     width: 17.1395483%;

@@ -45,16 +45,24 @@
                 <i class="fa-solid fa-house"></i> Home
             </p>
             <p>
-               <img src="layout.svg" alt="dashboard"> Dashboard
+               <a href="{% url 'xtracto:dashboard' %}">
+                <img src="layout.svg" alt="dashboard"> Dashboard
+               </a>
             </p>
             <p>
+                <a href="{% url 'xtracto:dashboard' %}">
                 <img src="layout.svg" alt="dashboard"> Profile
+                </a>
             </p>
             <p>
+                <a href="{% url 'xtracto:collections' %}">
                 <img src="layout.svg" alt="dashboard"> Collections
+                </a>
             </p>
             <p>
+                <a href="{% url 'xtracto:features' %}">
                 <img src="layout.svg" alt="dashboard"> Other Features
+                </a>
             </p>
         </div>
         <div>
@@ -62,12 +70,12 @@
                 <i class="fa-solid fa-gear"></i> Settings
             </p>
             <p>
-                <i class="fa-solid fa-right-from-bracket"></i> Log out
+                <a href="{% url 'xtracto:logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
             </p>
         </div>
     </nav>
 
-<!-- {% block content %} -->
+
 <!-- SEARCH BOX -->
     <div class="top">
         <input type="text" name="search" class="search_box"><span class="search-form"><i class="fa-solid fa-magnifying-glass"></i> <span>Search</span></span>
@@ -80,6 +88,7 @@
     </div>
     
     <main class="content">
+        {% block main %}
         <p class="welcome">
             Welcome back, Alberta
         </p>
@@ -100,6 +109,7 @@
 
         </div>
 
+        {% endblock %}
         <div class="upload-form">
             <label class="file">
                 <input type="file" class="upload-file">
@@ -109,7 +119,6 @@
                 
         </div>
     </main>
-    <!-- {% endblock %} -->
 
 
     <!-- <script src="{% static 'js/about.js' %}"> -->
