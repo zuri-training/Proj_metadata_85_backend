@@ -47,6 +47,12 @@ i{
 
 
 /* CLASS SELECTORS NAV*/
+.btn-mobile{
+    
+    display: none;
+    position: absolute;
+    top: 0;
+}
 .banner_bg{
     background-image: url('../images/home_banner.png');
     color: white;
@@ -649,7 +655,7 @@ color: #ffffff;
        width: 80%;
    }
 }
-@media only screen and (max-width:760px) {
+@media only screen and (max-width:770px) {
     .nav-right{
         width: 50%;
         margin-left: 10%;
@@ -670,6 +676,9 @@ color: #ffffff;
     }
     .social{
         margin-top: 120px;
+    }
+    .btn-mobile{
+        display: inline-block;
     }
 }
 @media only screen and (max-width:680px) {

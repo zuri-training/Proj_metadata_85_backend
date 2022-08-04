@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XTRACTO: Login page</title>
+  <title>{%  block title %} XTRACTO: Login page {% endblock %}</title>
   <!-- favicon -->
   <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
   <!--  -->
@@ -32,22 +32,22 @@
 <body>
     <!-- {#% extends "main/header.html" %} -->
 
-{% block content %}      
+    
 
 {% load crispy_forms_tags %}
   <!-- Navbar -->
   <nav>
     <h1>XTRACTO</h1>
     <ul class="ul-nav">
-      <li><a href="#about" class="nav-link">Home</a></li>
-      <li><a href="./img_about/About-us.html" class="nav-link">About Us</a></li>
-      <li><a href="./contact.html" class="nav-link">Contact Us</a></li>
-      <li><a href="./contact.html" class="nav-link">FAQs</a></li>
+      <li><a href="{% url 'xtracto:home' %}" class="nav-link">Home</a></li>
+      <li><a href="{% url 'xtracto:about' %}" class="nav-link">About Us</a></li>
+      <li><a href="{% url 'xtracto:contact' %}" class="nav-link">Contact Us</a></li>
+      <li><a href="{% url 'xtracto:contact' %}" class="nav-link">FAQs</a></li>
     </ul>
 
     <div class="signup-link">
-      <a href="./login.html" class="sign-in-btn nav-btn"> Sign in </a>
-      <a href="./register.html" class="register-btn nav-btn">Get exclusive features</a>
+      <a href="{% url 'xtracto:login' %}" class="sign-in-btn nav-btn"> Sign in </a>
+      <a href="{% url 'xtracto:register' %}" class="register-btn nav-btn">Get exclusive features</a>
     </div>
 
     <button class="burger-menu" id="burger-menu">
@@ -57,9 +57,11 @@
   <!-- End of Nav -->
 
   <!-- MAIN PAGE -->
+  {% block content %}  
   <main>
 
 <!--insert login files from  frontend--> 
+
 <div class="container">
   <h1>Welcome back !</h1>
 
@@ -84,21 +86,24 @@
     </form>
   </div>
 </div>
+
 <!-- <div class="container py-5">
   
 </div> -->
 
 </main>
+{% endblock %}
 <!-- END main page -->
 
 <!-- Page Footer -->
 <footer>
 
 <!-- 1st footer content -->
+
 <div class="footer-container">
 
   <div class="footer-one">
-    <p class="footer-title">XTRACTO</p>
+    <a href="{% url 'xtracto:home' %}"><p class="footer-title">XTRACTO</p></a>
     <p><a href="#" class="fa fa-map-marker" style="font-size:18px"></a>34, Kingston Rd, Lagos</p>
 
     <p><a href="#" class="fa fa-phone" style="font-size:18px"></a>(+234) 811745621</p>
@@ -112,16 +117,16 @@
     <p class="footer-title">About Us</p>
     <ul>
       <li>
-        <a href="#">About</a>
+        <a href="{% url 'xtracto:about' %}">About</a>
       </li>
       <li>
         <a href="https://www.google.com">Services</a>
       </li>
       <li>
-        <a href="#">Career</a>
+        <a href="{% url 'xtracto:about' %}">Career</a>
       </li>
       <li>
-        <a href="#">Contact</a>
+        <a href="{% url 'xtracto:contact' %}">Contact</a>
       </li>
     </ul>
   </div>
@@ -130,11 +135,11 @@
   <div class="footer-three">
     <p class="footer-title">Useful Links</p>
     <ul>
-      <li><a href="#">Privacy and Policy</a></li>
-      <li><a href="#">Terms & Condition</a></li>
-      <li><a href="#">Disclaimer</a></li>
-      <li><a href="#">Support</a></li>
-      <li><a href="#">FAQs</a></li>
+      <li><a href="{% url 'xtracto:about' %}">Privacy and Policy</a></li>
+      <li><a href="{% url 'xtracto:about' %}">Terms & Condition</a></li>
+      <li><a href="{% url 'xtracto:about' %}">Disclaimer</a></li>
+      <li><a href="{% url 'xtracto:about' %}">Support</a></li>
+      <li><a href="{% url 'xtracto:about' %}">FAQs</a></li>
     </ul>
   </div>
 
@@ -143,10 +148,10 @@
     <p class="footer-title">Resources</p>
     <ul>
       <li>
-        <a href="#">Developer API</a>
+        <a href="{% url 'xtracto:about' %}">Developer API</a>
       </li>
       <li>
-        <a href="#">Tools</a>
+        <a href="{% url 'xtracto:about' %}">Tools</a>
       </li>
     </ul>
   </div>
@@ -182,7 +187,7 @@
 
 
 
-{% endblock %}
+
 <!-- Website scripts -->
 <script src="{% static 'js/login.js' %}"></script>
 
