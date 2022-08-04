@@ -15,7 +15,7 @@ def contact(request):
 
 
 def register(request):
-    return render(request, 'xtracto/registerfrontend.html')
+    return render(request,'xtracto/register.html')
 
 def login(request):
     return render(request, 'xtracto/loginfrontend.html')
