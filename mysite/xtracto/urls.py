@@ -1,18 +1,18 @@
 from django.contrib import admin
 from django.urls import include, path, re_path
-from . import views
+from .views import index, register_request, login_request, login_request, about, contact, register, login
 
 app_name = "xtracto"
 
 
 urlpatterns = [
-    path("", views.index, name="home"),
-    path("register/", views.register_request, name="register"),
-    path("login", views.login_request, name="login"),
-    path("logout", views.logout_request, name="logout"),
-    path("about/", views.about, name="about"),
-    path("contact/", views.contact, name="contact"),
-    path("registerfrontend/", views.register, name="registerfrontend"),
-    path("loginfrontend/", views.login, name="loginfrontend"),
+    path("", index, name="home"),
+    path("register/", register_request, name="register"),
+    path("login/", login_request, name="login"),
+    path("logout/", logout_request, name="logout"),
+    path("about/", about, name="about"),
+    path("contact/", contact, name="contact"),
+    path("registerfrontend/", register, name="registerfrontend"),
+    path("loginfrontend/", login, name="loginfrontend"),
     # path("register/", views.register, name=""),
 ]
