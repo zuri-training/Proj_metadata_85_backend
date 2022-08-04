@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path, re_path
 from . import views
+from .views import index, register_request, login_request, login_request, about, contact, register, login
 
 app_name = "xtracto"
 
