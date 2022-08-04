@@ -1,3 +1,4 @@
 input{
-    display: none;
+    display: block;
+    margin: 50px;
 }

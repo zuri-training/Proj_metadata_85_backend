@@ -25,6 +25,9 @@ def login(request):
 def dashboard(request):
     return render(request, 'xtracto/dashboard.html')
 
+def dashboardfrontend(request):
+    return render(request, 'xtracto/dashboardfrontend.html')
+
 
 
 

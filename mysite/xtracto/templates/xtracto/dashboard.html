@@ -1,12 +1,17 @@
 {% extends 'xtracto/About-us.html' %}
-<head>
 
-    <link href="{% static 'css/dashboard.css'% }" rel="stylesheet">
-</head>
 {% block title %} XTRACTO: Dashboard {% endblock title %}
 
+{% block css %}
+{% load static%}
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
+<div>
+
+</div>
 <form class="upload-form">
     <input type="file" name="upload" required class="upload">
     <input type="submit" class="submit-btn">
