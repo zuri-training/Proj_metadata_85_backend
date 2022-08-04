@@ -13,8 +13,6 @@ def about(request):
 def contact(request):
     return render(request, 'xtracto/contact.html')
 
-def newhome(request):
-    return render(request, 'xtracto/index.html')
 
 def register(request):
     return render(request, 'xtracto/registerfrontend.html')

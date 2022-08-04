@@ -31,20 +31,20 @@
 </head>
 <body>
     <!-- NAVIGATION BAR -->
-    <div>
+    <div class="banner_bg">
 
     
         <nav class="home_nav">
-            <a href="{% url 'xtracto:home' %}"><h1 class="logo">XTRACTO</h1></a>
+            <a href="{% url 'xtracto:home' %}"><h1 class="logo-white">XTRACTO</h1></a>
 
-            <div class="nav-mid"><a href="{% url 'xtracto:home' %}"><h5>Home</h5></a> <a href="{% url 'xtracto:about' %}" ><h5>About Us</h5></a></h5>
+            <div class="nav-mid-white"><a href="{% url 'xtracto:home' %}"><h5>Home</h5></a> <a href="{% url 'xtracto:about' %}" ><h5>About Us</h5></a></h5>
                 <a href="{% url 'xtracto:contact' %}"><h5>Contact Us</h5></a>
                 <a href="{% url 'xtracto:contact' %}"><h5>FAQs</h5></a>
             
             </div>
 
             <div class="nav-right">
-                <a href="{% url 'xtracto:loginfrontend' %}"><button class="nav-btn-white" >
+                <a href="{% url 'xtracto:loginfrontend' %}"><button class="nav-btn-trans" >
                     Sign in
                 </button></a>
                 <a href="{% url 'xtracto:registerfrontend' %}"><button class="nav-btn-purple">
@@ -52,6 +52,19 @@
                 </button></a>
             </div>
         </nav>
+        <div>
+            <h2>
+                Unleash the power of data with our data extraction services
+            </h2>
+            <p>
+                Upload, extract, process and centralize your file’s metadata. 
+                Sign up to get access to amazing features.
+            </p>
+            <button class="btn-banner">
+                Get Started
+            </button>
+        </div>
+        
 
 
     </div>

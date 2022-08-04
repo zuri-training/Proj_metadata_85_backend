@@ -15,6 +15,10 @@ a:active{
     font-weight: bold;
     color: #435773;
 }
+h2{
+    font-weight: bold;
+    font-size: 45px;
+}
 h3{
     font-weight: 500;
     font-family: 'Lexend', Arial, sans-serif;
@@ -43,10 +47,17 @@ i{
 
 
 /* CLASS SELECTORS NAV*/
+.banner_bg{
+    background-image: url('../images/home_banner.png');
+    color: white;
+}
 .home_nav{
     background-color: transparent;
 }
-.logo{
+
+
+
+.logo, .logo-white{
     display: inline-block;
     margin: 1.44759699% 0 1.44759699% 6.94846555%;
     font-family: 'Poppins', sans-serif;
@@ -55,8 +66,11 @@ i{
     line-height: 60px;
     color: #435773;
 }
+.logo-white{
+    color: #ffffff;
+}
 
-.nav-mid{
+.nav-mid, .nav-mid-white{
 display: inline-block;
 margin: 1.44759699% 0 1.44759699% 20.4400695%;
 color: #435773;
@@ -68,7 +82,7 @@ width: 22.2929936%;
 margin: 1.44759699% 0 1.44759699% 8.80138969%;;
 }
 
-.nav-btn-white{
+.nav-btn-trans, .nav-btn-white{
 background-color: #ffffff;
 color: #68788F;
 border: 1px solid #68788F;
@@ -77,6 +91,14 @@ padding: 12px 20px;
 gap: 8px;
 height: 55px;
 margin: 0 6.23376623% 0 0;
+}
+.nav-btn-trans{
+    background-color: transparent;
+    border-color: #FFFFFF;
+    color: #ffffff;
+}
+.logo-white, .nav-mid-white{
+    color: #ffffff;
 }
 
 .nav-btn-purple{
