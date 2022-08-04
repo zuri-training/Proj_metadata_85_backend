@@ -26,6 +26,8 @@
     <!--  CSS STYLSHEET  -->
     <link href="{% static 'css/about.css' %}" rel="stylesheet">
 
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 </head>
@@ -33,8 +35,9 @@
     <!-- NAVIGATION BAR -->
     
     <nav>
+        
         <a href="{% url 'xtracto:home' %}"><h1 class="logo">XTRACTO</h1></a>
-
+        <div class="" id="toggle-div">
         <div class="nav-mid"><a href="{% url 'xtracto:home' %}"><h5>Home</h5></a> <a href="{% url 'xtracto:about' %}" ><h5>About Us</h5></a></h5>
             <a href="{% url 'xtracto:contact' %}"><h5>Contact Us</h5></a>
             <a href="{% url 'xtracto:contact' %}"><h5>FAQs</h5></a>
@@ -48,10 +51,24 @@
             <a href="{% url 'xtracto:register' %}"><button class="nav-btn-purple">
                 Get exclusive features
             </button></a>
-            
+        </div>
+
+            <span class="brands-toggle">
+
+                <i class="fa-brands fa-facebook-f"></i>
+    
+                <i class="fa-brands fa-twitter"></i>
+    
+                <i class="fa-brands fa-linkedin-in"></i>
+    
+                <i class="fa-brands fa-tumblr"></i>
+    
+            </span>
+        
         
         </div>
-            <i class="fa-solid fa-bars" id="js-btn"></i>
+        <i class="fa-solid fa-bars js-btn"></i>
+        <i class="fa-solid fa-x js-btn-x"></i>
     </nav>
     
     <!-- MAIN CONTENT -->
@@ -261,7 +278,10 @@ with            the use of seamless and easy-to-use plaforms
         </span>
     </div>
 </footer>
+    <script src="{% static 'js/about.js' %}">
 
+    </script>
+    
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
 </body>
 </html>
