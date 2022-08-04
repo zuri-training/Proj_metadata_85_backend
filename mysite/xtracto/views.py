@@ -22,7 +22,8 @@ def login(request):
 
 
 
-
+def dashboard(request):
+    return render(request, 'xtracto/dashboard.html')
 
 
 

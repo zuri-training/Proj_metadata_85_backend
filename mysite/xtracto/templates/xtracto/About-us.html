@@ -7,7 +7,7 @@
     <!-- META DESCRIPTION FOR SEO -->
     <meta name="description" content="About page Xtracto website to extract metadata from image JPEG, JSON files, PDF files, CSV FILES." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xtracto: About page</title>
+    <title>{% block title %}Xtracto: About page {% endblock %}</title>
 
 
     <!-- FONT AWESOME KIT CODE -->
@@ -71,6 +71,8 @@
         <i class="fa-solid fa-x js-btn-x"></i>
     </nav>
     
+    {% block content %}
+     
     <!-- MAIN CONTENT -->
     <main>
         <!-- first row main content -->
@@ -167,6 +169,7 @@ with            the use of seamless and easy-to-use plaforms
 
 
     </main>
+    {% endblock %}
 
 <!-- FOOTER -->
 <footer class="bottom">
