@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import *
-from .models import *
+from .models import Registered
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -38,15 +38,15 @@ def login(request):
         if request.POST.get('email') and request.POST.get('password'):
             email =request.POST['email']
             password=request.POST['password']
-            user = authenticate(username=username, password=password)
+
+            user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
                 email= user.email
                 return render(request, 'xtracto/dashboard.html', {'email': email})  
             else:
                 messages.error(request, 'Invalid details')
-                return redirect('xtracto/home')
-    return render(request, 'xtracto/loginfrontend.html')
+    return render(request, 'xtracto/login.html')
 
 
 
