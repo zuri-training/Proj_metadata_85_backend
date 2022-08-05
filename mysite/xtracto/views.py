@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import NewUserForm
+from .forms import *
+from .models import Users
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -15,7 +16,28 @@ def contact(request):
 
 
 def register(request):
-    return render(request,'xtracto/register.html')
+    if request.method == 'POST':
+        if request.POST.get('email') and request.POST.get('password'):
+            post = User()
+            post.email= request.POST.get('email')
+            post.password= request.POST.get('password')
+            post.save()
+            mydictionary= {}
+            mydictionary['SuccessMsg'] = 'Form Submitted: You can now login'
+            return render(request, 'xtracto/login.html', context=mydictionary)
+    #     else:
+            
+    #         mydictionary = {
+    #             "form" : form
+    #         }
+    #         return render(request,'xtracto/register.html', context=mydictionary)
+
+    else:        
+        return render(request,'xtracto/register.html')
+
+
+
+
 
 def login(request):
     return render(request, 'xtracto/loginfrontend.html')
@@ -58,7 +80,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"You are now logged in as {username}.")
-                return redirect("main:homepage")
+                return redirect("xtracto:home")
             else:
                 messages.error(request, "Invalid username or password.")
         else:
@@ -70,4 +92,4 @@ def login_request(request):
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect("main:homepage")
+    return redirect("xtracto:homepage")
