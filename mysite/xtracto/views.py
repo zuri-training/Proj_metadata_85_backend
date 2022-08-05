@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import *
-from .models import Users
+from .models import *
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -18,7 +18,7 @@ def contact(request):
 def register(request):
     if request.method == 'POST':
         if request.POST.get('email') and request.POST.get('password'):
-            post = User()
+            post = Registered()
             post.email= request.POST.get('email')
             post.password= request.POST.get('password')
             post.save()
