@@ -63,7 +63,7 @@
 <!--insert login files from  frontend--> 
 
 <div class="container">
-  <h1>{{SuccessMsg}}Welcome back !</h1>
+  <h1>Welcome back !</h1>
 
   <div class="form-wrapper">
     <form method="POST">
@@ -71,12 +71,10 @@
 
     
       <label for="email">Email Address</label>
-      <input type="email" spellcheck="true" name="email" id="email" required pattern="^[a-z 0-9 .com]{3,15}$"
-        title="Enter a valid Email">
+      <input type="email" spellcheck="true" name="email" id="email" required title="Enter a valid Email">
 
       <label for="password">Password</label>
-      <input type="password" spellcheck="true" name="password" id="password" required
-        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,25}$">
+      <input type="password" spellcheck="true" name="password" id="password" required >
 
       <a href="./reset-password.html" class="forgot-password">Forgot password?</a>
       <button type="submit" class="form-btn">Log in</button>
