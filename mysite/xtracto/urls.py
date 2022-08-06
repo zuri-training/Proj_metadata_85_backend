@@ -17,4 +17,8 @@ urlpatterns = [
     path("registerfrontend/", views.register, name="registerfrontend"),
     path("collections/", views.collections, name="collections"),
     path("features/", views.features, name="features"),
+    # -----metadata urls-----#
+    path("download", views.download_csv_data, name="download"),
+    path("viewXtracto", views.view_xtracto.as_view(), name="viewXtracto"),
+    path("result", views.result, name="result"),
 ]
