@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- META DESCRIPTION FOR SEO -->
+    <meta name="description" content="About page Xtracto website to extract metadata from image JPEG, JSON files, PDF files, CSV FILES." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Xtracto: About page {% endblock %}</title>
+
+
+    <!-- FONT AWESOME KIT CODE -->
+    <script src="https://kit.fontawesome.com/2ed1e52188.js" crossorigin="anonymous"></script>
+
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;400&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+    {% load static %}
+
+    <!--  CSS STYLSHEET  -->
+    
+    {% block css %}
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+    {% endblock %}
+        
+
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+</head>
+<body>
+    <!-- NAVIGATION BAR -->
+    
+    <nav>
+        
+        <a href="{% url 'xtracto:home' %}"><h1 class="logo">XTRACTO</h1></a>
+        <div class="" id="toggle-div">
+        <div class="nav-mid"><a href="{% url 'xtracto:home' %}"><h5>Home</h5></a> <a href="{% url 'xtracto:about' %}" ><h5>About Us</h5></a></h5>
+            <a href="{% url 'xtracto:contact' %}"><h5>Contact Us</h5></a>
+            <a href="{% url 'xtracto:contact' %}"><h5>FAQs</h5></a>
+        
+        </div>
+
+        <div class="nav-right">
+            <a href="{% url 'xtracto:login' %}"><button class="nav-btn-white" >
+                Sign in
+            </button></a>
+            <a href="{% url 'xtracto:register' %}"><button class="nav-btn-purple">
+                Get exclusive features
+            </button></a>
+        </div>
+
+            <span class="brands-toggle">
+
+                <i class="fa-brands fa-facebook-f"></i>
+    
+                <i class="fa-brands fa-twitter"></i>
+    
+                <i class="fa-brands fa-linkedin-in"></i>
+    
+                <i class="fa-brands fa-tumblr"></i>
+    
+            </span>
+        
+        
+        </div>
+        <i class="fa-solid fa-bars js-btn"></i>
+        <i class="fa-solid fa-x js-btn-x"></i>
+    </nav>
+    
+    {% block content %}
+     
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- first row main content -->
+        <div class="banner_area">
+            <div class="banner_left">
+                <h3>
+                    About XTRACTO
+                </h3>
+                <p>
+                    Xtracto is a seamless platform that empowers users to control how metadata is managed within the organization. 
+                    This metadata extraction and editing tool facilitates how companies search for and find their assets, 
+                    increase document security, improve data governance, improve data rights management, and aid regulatory compliance.
+                </p>
+            </div>
+            <img src="{% static 'images/file_types.png' %}" alt="image of acceptable filetype jpeg, pdf, csv and json" class="banner_img">
+        </div>
+
+        <!-- second row main content -->
+        <div class="row-2">
+            
+            <p>
+                We believe individuals and enterprises are managed
+with            the use of seamless and easy-to-use plaforms
+            </p>
+            <span>
+                The software works beyond extracting metadata from images, PDFs, CSV, 
+                and JSON file types and enables users to convert file types and resize content to fit their requirements.
+
+            </span>
+            
+        </div>
+
+
+
+        <!-- STORY ROW -->
+        <div class="story">
+
+            <img src="{% static 'images/story.png' %}" alt="The story of Xtracto metadata extractor" class="story_img">
+            <div class="story_right">
+                    <h3>
+                        Our <span class="purple">Story</span>
+                    </h3>
+                    <p>
+                        Xtracto is an easy-to-use software that allows users to upload image, PDF, CSV, and JSON file types, extract, display, and edit file metadata. It gives access to the metadata server API without any additional authorization after log in. So, generating metadata on Xtracto is just a simple upload-click process!</p>
+                </div>
+        </div>
+        
+
+        <!-- MISSION ROW -->
+        
+        <div class="mission">
+            <div class="mission_left">
+                <h3>
+                    Our <span class="purple">Mission</span>
+                </h3>
+                <span>
+                    To serve as a seamless platform that empowers users to control and manage metadata, 
+                    save files, collaborate in real time in a secure environment, and have satisfactory data extraction experience.  
+    
+                </span>
+            </div>
+            
+            <img src="{% static 'images/mission.png' %}" alt="The story of Xtracto metadata extractor" class="mission_img">
+            
+            
+        </div>
+
+        <!-- WHY EXTRACTO -->
+        <div class="story">
+
+            <img src="{% static 'images/why.png' %}" alt="The story of Xtracto metadata extractor" class="story_img">
+            <div class="story_right">
+                    <h3>
+                        Why<span class="purple"> XTRACTO?</span>
+                    </h3>
+                    <p>
+                        Xtracto does more than extracting, saving, downloading and sharing metadata recorded behind your files. 
+                        You can do more with our file conversion and editing tools. Also, user- and file-specific supports exist to 
+                        facilitate your experience. Our FAQs section also provides answers to your navigation queries.
+                    </p>
+                </div>
+        </div>
+
+        <!-- JOIN SOCIAL -->
+        <div class="social">
+            <p>
+                Join our community by following
+                our social media platforms
+            </p>
+        </div>
+
+
+
+
+
+    </main>
+    {% endblock %}
+
+<!-- FOOTER -->
+<footer class="bottom">
+    <div class="bottom_rows first">
+        <a href="{% url 'xtracto:home' %}"><h1 class="logo_bottom">XTRACTO</h1></a>
+        <p>
+            34, Kingston Rd, Lagos
+        </p>
+        <p>
+            (+234) 811745621
+        </p>
+        <p>
+            info@xtracto.tech
+        </p>
+    </div>
+    <div class="bottom_rows">
+        <h1 class="logo_bottom">About Us</h1>
+        <a href="{% url 'xtracto:about' %}">
+            <p>
+                About
+            </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
+        <p>
+            Services
+        </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
+        <p>
+            Careers
+        </p>
+        </a>
+        <a href="{% url 'xtracto:contact' %}"></a>
+        <p>
+            Contact
+        </p>
+    </div>
+    </div>
+    <div class="bottom_rows">
+        <h1 class="logo_bottom">Useful Links</h1>
+        <a href="{% url 'xtracto:about' %}">
+        <p>
+            Privacy Policy
+        </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
+        <p>
+            Terms and Conditions
+        </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
+        <p>
+            Disclaimer
+        </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
+        <p>
+            Support
+        </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
+        <p>
+            FAQs
+        </p>
+        </a>
+    </div>
+    <div class="bottom_rows">
+        <h1 class="logo_bottom">Resources</h1>
+        <a href="{% url 'xtracto:about' %}">
+        <p>
+            Developer Api
+        </p>
+        </a>
+        <a href="{% url 'xtracto:about' %}">
+        <p>
+            Tools
+        </p>
+        </a>
+    </div>
+    <div class=" wider_bottom">
+        <p class="news">
+            Subscribe to our Newsletter
+        </p>
+        <form method="post" action="" class="form">
+            <input type="email" name="email" placeholder="Email Address" required class="email_input">
+            <input type="submit" value="→" name="submit" class="submit">
+        </form>
+        
+    </div>
+
+    <div class="last_div">
+        <span>
+            © 2020 Xtracto. All Rights Reserved
+        </span>
+        <span>
+            Privacy Policy Cookie Policy
+        </span>
+
+        <span class="brands">
+
+            <i class="fa-brands fa-facebook-f"></i>
+
+            <i class="fa-brands fa-twitter"></i>
+
+            <i class="fa-brands fa-linkedin-in"></i>
+
+            <i class="fa-brands fa-tumblr"></i>
+            
+        </span>
+    </div>
+</footer>
+    <script src="{% static 'js/about.js' %}">
+
+    </script>
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+</body>
+</html>

@@ -1,0 +1,77 @@
+{% extends "xtracto/login.html" %} 
+  {% block title %} XTRACTO: Contact page {% endblock title %}</title>
+
+ 
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="{% url 'xtracto:home' %}"><h1>XTRACTO</h1></a>
+    <ul class="ul-nav">
+      <li><a href="#about" class="nav-link">Home</a></li>
+      <li><a href="./img_about/About-us.html" class="nav-link">About Us</a></li>
+      <li><a href="./contact.html" class="nav-link">Contact Us</a></li>
+      <li><a href="#contact" class="nav-link">FAQs</a></li>
+    </ul>
+
+    <div class="signup-link">
+      <a href="./login.html" class="sign-in-btn nav-btn"> Sign in </a>
+      <a href="./register.html" class="register-btn nav-btn">Get exclusive features</a>
+    </div>
+
+    <button class="burger-menu" id="burger-menu">
+      <ion-icon class="bars" name="menu-outline"></ion-icon>
+    </button>
+  </nav>
+  <!-- End of Nav -->
+
+
+  <!-- Main page -->
+  {% block content %}
+  <main>
+    <div class="container-page">
+
+      <div class="contact-wrapper">
+        <div class="contact-txt">
+          <h2>Connect with us</h1>
+            <p>Fill out the form below to get in touch with us, You can also email us at <span>hello@xtracto.tech</span>
+              or call us on <span>+234 (000) 004 03110</span>.</p>
+        </div>
+
+        <div class="contact-form">
+          <form action="">
+            <label for="name">Name</label>
+            <input type="email" spellcheck="true" name="email" id="name" required
+              pattern="^?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$" placeholder="Name" title="Enter a valid Name">
+
+            <label for="email">Work Email</label>
+            <input type="email" spellcheck="true" name="email" id="email" required pattern="^[a-z 0-9 .com]{3,15}$"
+              placeholder="Work Email" title="Enter a valid Email">
+
+            <label for="phone-number">Phone Number</label>
+            <input type="password" spellcheck="true" name="password" id="password" required
+              pattern="^(?=.*[0-9]){8,25}$" placeholder="John Doe">
+
+            <div class="country-inputfield">
+              <label for="country">Country</label>
+              <input type="email" spellcheck="true" name="email" id="country" required
+                pattern="^?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$" placeholder="Name" title="Enter a valid Country">
+            </div>
+
+            <label for="message">Anything you would like to tell us</label>
+            <textarea name="message" id="message" cols="73" rows="13" placeholder="Enter Your Message"
+              class="input-field" required></textarea>
+
+            <button type="submit" class="form-btn">Contact Us</button>
+
+          </form>
+        </div>
+
+      </div>
+
+      <div class="icon-image">
+        <img src="./images/Frame 75.png" alt="Icon image">
+      </div>
+    </div>
+  </main>
+  {% endblock %}

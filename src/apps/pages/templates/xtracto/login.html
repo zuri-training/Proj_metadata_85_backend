@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{%  block title %} XTRACTO: Login page {% endblock %}</title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+  <!--  -->
+
+  {% load static %}
+  <!-- css custom link -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <!--  -->
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comforter&family=Poppins&family=Inter:wght@200,300,400,500,600,700,800,900&family=Quintessential&display=swap"
+    rel="stylesheet">
+  <!--  -->
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    
+
+    
+
+{% load crispy_forms_tags %}
+  <!-- Navbar -->
+  <nav>
+    <h1>XTRACTO</h1>
+    <ul class="ul-nav">
+      <li><a href="{% url 'xtracto:home' %}" class="nav-link">Home</a></li>
+      <li><a href="{% url 'xtracto:about' %}" class="nav-link">About Us</a></li>
+      <li><a href="{% url 'xtracto:contact' %}" class="nav-link">Contact Us</a></li>
+      <li><a href="{% url 'xtracto:contact' %}" class="nav-link">FAQs</a></li>
+    </ul>
+
+    <div class="signup-link">
+      <a href="{% url 'xtracto:login' %}" class="sign-in-btn nav-btn"> Sign in </a>
+      <a href="{% url 'xtracto:register' %}" class="register-btn nav-btn">Get exclusive features</a>
+    </div>
+
+    <button class="burger-menu" id="burger-menu">
+      <ion-icon class="bars" name="menu-outline"></ion-icon>
+    </button>
+  </nav>
+  <!-- End of Nav -->
+
+  <!-- MAIN PAGE -->
+  {% block content %}  
+  <main>
+
+<!--insert login files from  frontend--> 
+
+<div class="container">
+  <h1>Welcome back !</h1>
+
+  <div class="form-wrapper">
+    <form method="POST">
+        {% csrf_token %}
+
+    
+      <label for="email">Email Address</label>
+      <input type="email" spellcheck="true" name="email" id="email" required title="Enter a valid Email">
+
+      <label for="password">Password</label>
+      <input type="password" spellcheck="true" name="password" id="password" required >
+
+      <a href="./reset-password.html" class="forgot-password">Forgot password?</a>
+      <button type="submit" class="form-btn">Log in</button>
+
+      <p>Dont't have an account?<span><a href="{% url 'xtracto:register' %}">Sign Up</a></span></p>
+    </form>
+  </div>
+</div>
+
+<!-- <div class="container py-5">
+  
+</div> -->
+
+</main>
+{% endblock %}
+<!-- END main page -->
+
+<!-- Page Footer -->
+<footer>
+
+<!-- 1st footer content -->
+
+<div class="footer-container">
+
+  <div class="footer-one">
+    <a href="{% url 'xtracto:home' %}"><p class="footer-title">XTRACTO</p></a>
+    <p><a href="#" class="fa fa-map-marker" style="font-size:18px"></a>34, Kingston Rd, Lagos</p>
+
+    <p><a href="#" class="fa fa-phone" style="font-size:18px"></a>(+234) 811745621</p>
+
+    <p><a href="#" class="fa fa-envelope"></a>info@extracto.tech</p>
+
+  </div>
+
+  <!-- 2nd footer content -->
+  <div class="footer-two">
+    <p class="footer-title">About Us</p>
+    <ul>
+      <li>
+        <a href="{% url 'xtracto:about' %}">About</a>
+      </li>
+      <li>
+        <a href="https://www.google.com">Services</a>
+      </li>
+      <li>
+        <a href="{% url 'xtracto:about' %}">Career</a>
+      </li>
+      <li>
+        <a href="{% url 'xtracto:contact' %}">Contact</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 3rd footer content -->
+  <div class="footer-three">
+    <p class="footer-title">Useful Links</p>
+    <ul>
+      <li><a href="{% url 'xtracto:about' %}">Privacy and Policy</a></li>
+      <li><a href="{% url 'xtracto:about' %}">Terms & Condition</a></li>
+      <li><a href="{% url 'xtracto:about' %}">Disclaimer</a></li>
+      <li><a href="{% url 'xtracto:about' %}">Support</a></li>
+      <li><a href="{% url 'xtracto:about' %}">FAQs</a></li>
+    </ul>
+  </div>
+
+  <!-- 4th footer content -->
+  <div class="footer-four">
+    <p class="footer-title">Resources</p>
+    <ul>
+      <li>
+        <a href="{% url 'xtracto:about' %}">Developer API</a>
+      </li>
+      <li>
+        <a href="{% url 'xtracto:about' %}">Tools</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 5th footer content -->
+  <div class="footer-five">
+    <p>Subscribe to our newsletter</p>
+    <input type="email" name="" id="" placeholder="Email Address">
+    <a href="#" class="fa-solid fa-brands fa-arrow-right"></a>
+  </div>
+
+</div>
+
+
+<div class="end">
+  <!-- div at the right with social media icons -->
+  <div class="r-end" id="r-end">
+    <p id="end-p-tag">&copy;<span>2022 Xtracto. All rights reserved.</span> <a href="#">Privacy Policy</a> <a
+        href="#">Cookie
+        Policy</a></p>
+  </div>
+
+  <!-- div at the left end with copyright -->
+  <div class="l-end" id="l-end">
+    <a href="#" class="fa fa-brands fa-facebook-f"></a>
+    <a href="#" class="fa fa-brands fa-twitter"></a>
+    <a href="#" class="fa fa-brands fa-linkedin"></a>
+    <a href="#" class="fa fa-brands fa-instagram"></a>
+  </div>
+</div>
+
+</footer>
+
+
+
+
+<!-- Website scripts -->
+<script src="{% static 'js/login.js' %}"></script>
+
+<!-- Ion icons scripts -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XTRACTO: Login page</title>
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+  <!--  -->
+  {% load static %}
+  <!-- css custom link -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <!--  -->
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap"
+    rel="stylesheet">
+  <!--  -->
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav>
+    <h1>XTRACTO</h1>
+    <ul class="ul-nav">
+      <li><a href="{% url 'xtracto:home' %}" class="nav-link">Home</a></li>
+      <li><a href="{% url 'xtracto:about' %}" class="nav-link">About Us</a></li>
+      <li><a href="{% url 'xtracto:contact' %}" class="nav-link">Contact Us</a></li>
+      <li><a href="./contact.html" class="nav-link">FAQs</a></li>
+    </ul>
+
+    <div class="signup-link">
+      <a href="./login.html" class="sign-in-btn nav-btn"> Sign in </a>
+      <a href="./register.html" class="register-btn nav-btn">Get exclusive features</a>
+    </div>
+
+    <button class="burger-menu" id="burger-menu">
+      <ion-icon class="bars" name="menu-outline"></ion-icon>
+    </button>
+  </nav>
+  <!-- End of Nav -->
+
+  <!-- MAIN PAGE -->
+  <main>
+    <div class="container">
+      <h1 class="register-h1-tag">Join us</h1>
+      <p class="register-p-tag">Creating an account gives you access to all our great features</p>
+
+      <div class="form-wrapper">
+        <form action="">
+          <label for="email">Email Address</label>
+          <input type="email" spellcheck="true" name="email" id="email" required pattern="^[a-z 0-9 .com]{3,15}$"
+            title="Enter a valid Email">
+
+          <label for="password">Password</label>
+          <input type="password" spellcheck="true" name="password" id="password" required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,25}$">
+
+          <button type="submit" class="form-btn">Create Account</button>
+
+          <p>Already have an account?<span><a href="./login.html">Log in</a></span></p>
+        </form>
+      </div>
+    </div>
+  </main>
+  <!-- END main page -->
+
+  <!-- PAGE FOOTER -->
+
+  <footer>
+
+    <!-- 1st footer content -->
+    <div class="footer-container">
+
+      <div class="footer-one">
+        <p class="footer-title">XTRACTO</p>
+        <p><a href="#" class="fa fa-map-marker" style="font-size:18px"></a>34, Kingston Rd, Lagos</p>
+
+        <p><a href="#" class="fa fa-phone" style="font-size:18px"></a>(+234) 811745621</p>
+
+        <p><a href="#" class="fa fa-envelope"></a>info@extracto.tech</p>
+
+      </div>
+
+      <!-- 2nd footer content -->
+      <div class="footer-two">
+        <p class="footer-title">About Us</p>
+        <ul>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="https://www.google.com">Services</a>
+          </li>
+          <li>
+            <a href="#">Career</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 3rd footer content -->
+      <div class="footer-three">
+        <p class="footer-title">Useful Links</p>
+        <ul>
+          <li><a href="#">Privacy and Policy</a></li>
+          <li><a href="#">Terms & Condition</a></li>
+          <li><a href="#">Disclaimer</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- 4th footer content -->
+      <div class="footer-four">
+        <p class="footer-title">Resources</p>
+        <ul>
+          <li>
+            <a href="#">Developer API</a>
+          </li>
+          <li>
+            <a href="#">Tools</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 5th footer content -->
+      <div class="footer-five">
+        <p>Subscribe to our newsletter</p>
+        <input type="email" name="" id="" placeholder="Email Address">
+        <a href="#" class="fa-solid fa-brands fa-arrow-right"></a>
+      </div>
+
+    </div>
+
+
+    <div class="end">
+      <!-- div at the right with social media icons -->
+      <div class="r-end" id="r-end">
+        <p id="end-p-tag">&copy;<span>2022 Xtracto. All rights reserved.</span> <a href="#">Privacy Policy</a> <a
+            href="#">Cookie
+            Policy</a></p>
+      </div>
+
+      <!-- div at the left end with copyright -->
+      <div class="l-end" id="l-end">
+        <a href="#" class="fa fa-brands fa-facebook-f"></a>
+        <a href="#" class="fa fa-brands fa-twitter"></a>
+        <a href="#" class="fa fa-brands fa-linkedin"></a>
+        <a href="#" class="fa fa-brands fa-instagram"></a>
+      </div>
+    </div>
+
+  </footer>  
+
+  <!-- Website scripts -->
+  <script src="./js/login.js"></script>
+
+  <!-- Ion icons scripts -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
