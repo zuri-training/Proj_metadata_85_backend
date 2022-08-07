@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from dotenv import load_dotenv
-from DjangoWhiteNoise import GzipManifestStaticFilesStorage
 import os
 
 load_dotenv()
@@ -147,8 +146,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 #  Add configuration for static files storage using whitenoise
-# STATICFILES_STORAGE = 'DjangoWhiteNoise.GzipManifestStaticFilesStorage'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'DjangoWhiteNoise.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # https://xtracto85.herokuapp.com/ | https://git.heroku.com/xtracto85.git
