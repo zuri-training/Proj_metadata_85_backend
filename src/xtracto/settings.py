@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     # own apps
-    'apps.pages.apps.PagesConfig',
+    'pages.apps.PagesConfig',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -139,14 +139,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_URL = 'apps/pages/static/'
+STATIC_URL = 'static/'
 # STATIC_ROOT  =  os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 # https://xtracto85.herokuapp.com/ | https://git.heroku.com/xtracto85.git
