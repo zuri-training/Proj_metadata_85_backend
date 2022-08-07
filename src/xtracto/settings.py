@@ -29,7 +29,7 @@ if 'SECRET_KEY' in os.environ:
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['xtracto85.herokuapp.com']
+ALLOWED_HOSTS = ['xtracto85.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
