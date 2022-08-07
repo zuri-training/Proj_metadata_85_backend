@@ -146,8 +146,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'DjangoWhiteNoise.GzipManifestStaticFilesStorage'
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # https://xtracto85.herokuapp.com/ | https://git.heroku.com/xtracto85.git
