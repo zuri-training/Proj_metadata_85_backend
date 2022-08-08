@@ -1,4 +1,43 @@
-.docs-h5{
-
+h6{
+    font-size: 15px;
+    font-weight: 700;
+    color: #1D3557;
+}
+.main-docs{
     
+    width: 80%;
+}
+
+.docs-h5{
+    font-size: 22px;
+    font-weight: 700;
+    color: #1D3557;
+    
+}
+
+.docs-body{
+    font-size: 17px;
+    color: #435773;
+    margin-bottom:50px;
+}
+
+.main-docs h6{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+ul{
+    padding-left: 0;
+    list-style: disc;
+    list-style-type: disc;
+    
+}
+.docs-list{
+    color: #1D3557;
+    padding-left: 0;
+}
+
+
+.libraries, .getting_started{
+
+    display: none;
 }
