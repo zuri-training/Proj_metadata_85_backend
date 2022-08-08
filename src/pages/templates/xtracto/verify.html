@@ -1,0 +1,16 @@
+{% extends 'xtracto/pwdreset.html' %}
+
+{% block title %}
+Verify
+{% endblock%}
+
+{% block h1 %}
+        Verify your email
+{% endblock %}
+
+
+{% block form %}
+            <p class="code">Enter your 6 digit code sent to your email</p>
+          <input type="text"  name="code" id="code" required>
+          <input type="submit" name="submit" class="pwd-submit" value="Done">
+{% endblock form %}

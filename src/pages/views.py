@@ -85,6 +85,15 @@ def contact(request):
 def faqs(request):
     return render(request, "xtracto/faqs.html")
 
+def pwdreset(request):
+    return render(request, "xtracto/pwdreset.html")
+
+def verify(request):
+    return render(request, "xtracto/verify.html")
+
+def docs(request):
+    return render(request, "xtracto/docs.html")
+
 def dashboard(request):
     return render(request, "xtracto/dashboard.html")
 

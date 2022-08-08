@@ -40,7 +40,9 @@
 
     <nav class="dash-nav">
         <a href="{% url 'xtracto:home' %}"><h1 class="logo">XTRACTO</h1></a>
+
         <div class="links">
+            {% block notfordocs %}
             <p>
                 <i class="fa-solid fa-house"></i> Home
             </p>
@@ -72,11 +74,14 @@
             <p>
                 <a href="{% url 'xtracto:logout' %}"><i class="fa-solid fa-right-from-bracket"></i> Log out</a>
             </p>
+            
         </div>
+        {% endblock %}
     </nav>
 
 
 <!-- SEARCH BOX -->
+{% block notfordocs2 %}
     <div class="top">
         <input type="text" name="search" class="search_box"><span class="search-form"><i class="fa-solid fa-magnifying-glass"></i> <span>Search</span></span>
     
@@ -86,6 +91,7 @@
             <img src="why.png" class="dp-small" alt="small-dp">
         </div>
     </div>
+{% endblock %}
     
     <main class="content">
         {% block main %}
@@ -136,7 +142,7 @@
 
         {% endblock %}
 
-
+            {% block notfordocs3 %}
         <div class="upload-form">
             <label class="file">
 
@@ -157,6 +163,7 @@
             </button>
 
         </div>
+        {% endblock %}
     </main>
 
 

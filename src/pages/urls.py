@@ -17,8 +17,12 @@ urlpatterns = [
     # path("registerfrontend/", views.register, name="registerfrontend"),
     path("collections/", views.collections, name="collections"),
     path("features/", views.features, name="features"),
+    path("docs/", views.docs, name="docs"),
+
     path("faqs/", views.faqs, name="faqs"),
-    
+    path("pwdreset/", views.pwdreset, name="pwdreset"),
+    path("verify/", views.verify, name="verify"),
+
     # -----metadata urls-----#
     path("download", views.download_csv_data, name="download"),
     path("viewXtracto", views.view_xtracto.as_view(), name="viewXtracto"),

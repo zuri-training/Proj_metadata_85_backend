@@ -1,0 +1,48 @@
+{% extends 'xtracto/dashboard.html' %}
+
+<title>{% block title %}Xtracto: DOCS {% endblock %}</title>
+
+
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+    <link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+    <link href="{% static 'css/docs.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block notfordocs %}
+            <h5 class="docs-h5">
+                Xtracto Docs
+                
+            </h5>
+            <h6>
+                Introduction
+            </h6>
+            <h6>
+                Getting Started
+            </h6>
+
+            <h6>
+                Libraries and SDK
+            </h6>
+            {% endblock %}
+
+            {% block notfordocs2 %}
+            
+        {% endblock %}
+
+
+
+        {% block main %}
+
+            <h5 class="docs-h5">
+                Welcome
+            </h5>
+
+        {% endblock %}
+
+        {% block notfordocs3 %}
+
+        {% endblock %}

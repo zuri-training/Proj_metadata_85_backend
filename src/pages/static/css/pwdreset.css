@@ -1,0 +1,44 @@
+h1{
+    text-align: center;
+    color: #1D3557;
+}
+
+input[type='password'][name='password'], input[type='text']{
+    border-radius: 8px;
+    opacity: 0.4;
+    width: 100%;
+    margin: auto;
+    border: 1px solid #BBBBBB;
+    display: block;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #1D3557;
+}
+.trouble{
+    margin: 50px 0;
+}
+.pwd-submit{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 50px;
+    background-color: #743CA8;
+    color: #ffffff;
+    font-family: 'Lexend';
+    font-size: 24px;
+    border-radius: 8px;
+    
+}
+
+.pwd-reset-div{
+    width: 30%;
+    min-width: 300px;
+    margin:auto;
+}
+
+.code{
+    text-align: center;
+    margin-top: -30px;
+    color: #435773;
+    
+}
