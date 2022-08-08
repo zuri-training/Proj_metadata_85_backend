@@ -1,3 +1,5 @@
+// js for about page, faqs page
+
 
 $(".js-btn").click(function(){
     $('.js-btn').hide(500);
@@ -16,3 +18,4 @@ $(".js-btn-x").click(function(){
     $('.js-btn-x').hide(500);
     $('.js-btn').show(500);
 });
+

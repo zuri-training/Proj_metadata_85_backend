@@ -22,22 +22,47 @@
 
     
     <div class="faqs">
-        What is Metadata? <i class="fa-solid fa-circle-right"></i>
+        What is Metadata? <i class="fa-solid fa-circle-right faq-drop faq-drop-1"></i>
+        <p class="drop-faqs">
+            Metadata is data about other data. It is a small bit of information that defines a broader sense of data, and an invaluable resource for gaining complete control of your data and digital file ecosystem. 
+            The main purpose of metadata is to make tracking essential data faster and easier. That's why it is often used to organize and remodel complicated data into a practical and clear form.
+            Without metadata, finding the right files would be virtually impossible as it adds structure to a file and assigns values, such as a case ID, classification, or keywords, that makes it easier to find.
+
+        </p>
     </div>
     <div class="faqs">
-        Would we be adding new features to Xtracto in the future? <i class="fa-solid fa-circle-right"></i>
+        Would we be adding new features to Xtracto in the future? <i class="fa-solid fa-circle-right faq-drop faq-drop-2"></i>
+        <p class="drop-faqs">
+            Yes, we would. The team is constantly working on bringing more features to make your work easier.
+        </p>
     </div>
     <div class="faqs">
-        Do I need to pay to use Xtracto? <i class="fa-solid fa-circle-right"></i>
+        Do I need to pay to use Xtracto? <i class="fa-solid fa-circle-right faq-drop faq-drop-3"></i>
+        <p class="drop-faqs">
+            No, not at all. Every feature is free as long as you sign up.
+        </p>
     </div>
     <div class="faqs">
-        Would we be adding more file types in the future? <i class="fa-solid fa-circle-right"></i>
+        Would we be adding more file types in the future? <i class="fa-solid fa-circle-right faq-drop faq-drop-4"></i>
+        <p class="drop-faqs">
+            Yes, we would. The team is constantly working to add new file types to make your experience better
+        </p>
     </div>
     <div class="faqs">
-        Who can use Xtracto? <i class="fa-solid fa-circle-right"></i>
+        Who can use Xtracto? <i class="fa-solid fa-circle-right faq-drop faq-drop-5"></i>
+        <p class="drop-faqs">
+            Everyone and anyone can use Xrtracto. Companies to who are Data oriented can make use of our platform
+        </p>
     </div>
 
     <p class="faq_p">
         Could not find what you were looking for? You can <a href="{% url 'xtracto:contact' %}">contact us</a> with your questions.
     </p>
     {% endblock content %}
+
+
+    {% block 'javascript' %}
+    <script src="{% static 'js/faqs.js' %}">
+
+    </script>
+{% endblock 'javascript' %}

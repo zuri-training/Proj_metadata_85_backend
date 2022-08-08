@@ -28,7 +28,7 @@
     box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
 }
 
-.fa-circle-right{
+.faq-drop{
     float: right;
     color: black;
     font-size: 20px;
@@ -42,4 +42,8 @@
 }
 .faq_p a{
     color: #743CA8;
+}
+
+.drop-faqs{
+    display: none;
 }
