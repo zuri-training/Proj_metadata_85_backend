@@ -570,6 +570,9 @@ color: #ffffff;
 
 @media only screen and (max-width: 900px) {
 
+    h3{
+        font-size: 30px;
+    }
     .footer{
         padding-right: 8.97510133%;
     }
@@ -600,14 +603,23 @@ color: #ffffff;
         margin: auto;
         width: 65%;
         }
+        .banner_left>p{
+            font-size: 20px;
+        }
     .row-2>span, .row-2>p{
         width: 80%;
+        font-size: 15px;
+    }
+    .row-2>span{
+        font-size: 12px;
     }
     .story, .mission{
         height: 800px;
         margin-bottom: 0;
     }
-
+    .story_right{
+        font-size: 20px;
+    }
     .story_right, .mission_left{
         display: block;
         position: relative;
@@ -632,6 +644,7 @@ color: #ffffff;
     }
    .mission_left{
        display: block;
+       font-size: 20px
    }
    .social{
        margin-top: 50px;
@@ -639,6 +652,9 @@ color: #ffffff;
    }
    .social>p{
        width: 80%;
+   }
+   .social{
+       font-size: 20px;
    }
 }
 @media only screen and (max-width:770px) {

@@ -32,7 +32,7 @@
                     <li><a href="{% url 'xtracto:home' %}" class="nav-link">Home</a></li>
                     <li><a href="{% url 'xtracto:about' %}" class="nav-link">About Us</a></li>
                     <li><a href="{% url 'xtracto:contact' %}" class="nav-link">Contact Us</a></li>
-                    <li><a href="{% url 'xtracto:contact' %}" class="nav-link">FAQs</a></li>
+                    <li><a href="{% url 'xtracto:faqs' %}" class="nav-link">FAQs</a></li>
                 </ul>
                 <div class="signup-link">
                     <a href="{% url 'xtracto:login' %}" class="sign-in-btn nav-btn"> Sign in </a>
@@ -151,7 +151,7 @@
                 <p><a href="{% url 'xtracto:about' %}">About</a></p>
                 <p><a href="#">Services</a></p>
                 <p><a href="#">Career</a></p>
-                <p><a href="#">Contact</a></p>
+                <p><a href="{% url 'xtracto:contact' %}">Contact</a></p>
             </div>
             <div class="br-c ">
                 <p class="footer-title">Useful Links</p>
@@ -159,7 +159,7 @@
                 <p><a href="#">Terms & Condition</a></p>
                 <p><a href="#">Disclaimer</a></p>
                 <p><a href="#">Support</a></p>
-                <p><a href="#">FAQ</a></p>
+                <p><a href="{% url 'xtracto:faqs' %}">FAQ</a></p>
             </div>
             <div class="br">
                 <p class="footer-title">Resources</p>

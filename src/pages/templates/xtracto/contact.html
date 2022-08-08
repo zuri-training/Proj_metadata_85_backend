@@ -8,15 +8,15 @@
   <nav>
     <a href="{% url 'xtracto:home' %}"><h1>XTRACTO</h1></a>
     <ul class="ul-nav">
-      <li><a href="#about" class="nav-link">Home</a></li>
-      <li><a href="./img_about/About-us.html" class="nav-link">About Us</a></li>
-      <li><a href="./contact.html" class="nav-link">Contact Us</a></li>
-      <li><a href="#contact" class="nav-link">FAQs</a></li>
+      <li><a href="{% url 'xtracto:home' %}" class="nav-link">Home</a></li>
+      <li><a href="{% url 'xtracto:about' %}" class="nav-link">About Us</a></li>
+      <li><a href="{% url 'xtracto:contact' %}" class="nav-link">Contact Us</a></li>
+      <li><a href="{% url 'xtracto:faqs' %}" class="nav-link">FAQs</a></li>
     </ul>
 
     <div class="signup-link">
-      <a href="./login.html" class="sign-in-btn nav-btn"> Sign in </a>
-      <a href="./register.html" class="register-btn nav-btn">Get exclusive features</a>
+      <a href="{% url 'xtracto:login' %}" class="sign-in-btn nav-btn"> Sign in </a>
+      <a href="{% url 'xtracto:register' %}" class="register-btn nav-btn">Get exclusive features</a>
     </div>
 
     <button class="burger-menu" id="burger-menu">
