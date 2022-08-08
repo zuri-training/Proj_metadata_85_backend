@@ -1,0 +1,43 @@
+{% extends 'xtracto/About-us.html' %}
+
+{% block title %}Xtracto: FAQs {% endblock %}
+
+{% load static %}
+
+{% block css %}
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+    <link href="{% static 'css/faqs.css' %}" rel="stylesheet">
+    {% endblock %}
+
+
+    {% block content %}
+    <div class="bannerarea" id="faqs_banner">
+    
+            <h1 class="faqs_banner">
+                FAQ & SUPPORT
+            </h1>
+    
+        
+    </div>
+
+    
+    <div class="faqs">
+        What is Metadata? <i class="fa-solid fa-circle-right"></i>
+    </div>
+    <div class="faqs">
+        Would we be adding new features to Xtracto in the future? <i class="fa-solid fa-circle-right"></i>
+    </div>
+    <div class="faqs">
+        Do I need to pay to use Xtracto? <i class="fa-solid fa-circle-right"></i>
+    </div>
+    <div class="faqs">
+        Would we be adding more file types in the future? <i class="fa-solid fa-circle-right"></i>
+    </div>
+    <div class="faqs">
+        Who can use Xtracto? <i class="fa-solid fa-circle-right"></i>
+    </div>
+
+    <p class="faq_p">
+        Could not find what you were looking for? You can <a href="{% url 'xtracto:contact' %}">contact us</a> with your questions.
+    </p>
+    {% endblock content %}

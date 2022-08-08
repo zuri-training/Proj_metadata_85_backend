@@ -50,7 +50,7 @@ def register(request):
             post.save()
             # mydictionary= {}
             # mydictionary['SuccessMsg'] = 'Form Submitted: You can now login'
-            messages.success(request, "You have been successfully registered")
+            messages.success(request, "You nhave been succefully registered")
             return render(
                 request,
                 "xtracto/login.html",
@@ -77,6 +77,8 @@ def login(request):
                 messages.error(request, "Invalid details")
     return render(request, "xtracto/login.html")
 
+def faqs(request):
+    return render(request, "xtracto/faqs.html")
 
 def dashboard(request):
     return render(request, "xtracto/dashboard.html")
@@ -93,7 +95,7 @@ def features(request):
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect("xtracto:home")
+    return redirect("xtracto:homepage")
 
 
 # ------Metadata-------#
