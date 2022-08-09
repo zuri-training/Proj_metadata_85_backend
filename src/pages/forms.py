@@ -5,14 +5,6 @@ from django.contrib.auth.models import User
 
 # Create your forms here.
 
-# <<<<<<< HEAD
-# <<<<<<< HEAD
-# =======
-# from django import forms
-# =======
-# from django import forms
-
-
 # Registration form
 class Registrationform(forms.Form, forms.ModelForm):
     username = forms.EmailField(
