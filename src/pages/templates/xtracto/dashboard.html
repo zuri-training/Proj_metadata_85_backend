@@ -48,22 +48,22 @@
             </p>
             <p>
                <a href="{% url 'xtracto:dashboard' %}">
-                <img src="layout.svg" alt="dashboard"> Dashboard
+                <img src="../../static/images/layout.svg" alt="dashboard"> Dashboard
                </a>
             </p>
             <p>
                 <a href="{% url 'xtracto:dashboard' %}">
-                <img src="layout.svg" alt="dashboard"> Profile
+                <img src="{% static 'images/layout.svg'}" alt="dashboard"> Profile
                 </a>
             </p>
             <p>
                 <a href="{% url 'xtracto:collections' %}">
-                <img src="layout.svg" alt="dashboard"> Collections
+                <img src="{% static 'images/layout.svg'}" alt="dashboard"> Collections
                 </a>
             </p>
             <p>
                 <a href="{% url 'xtracto:features' %}">
-                <img src="layout.svg" alt="dashboard"> Other Features
+                <img src="{% static 'images/layout.svg'}" alt="dashboard"> Other Features
                 </a>
             </p>
         </div>
@@ -88,7 +88,7 @@
         <div class="top-right">
             <i class="fa-solid fa-bell"></i>
 
-            <img src="why.png" class="dp-small" alt="small-dp">
+            <img src="../../static/images/why.png" class="dp-small" alt="small-dp">
         </div>
     </div>
 {% endblock %}

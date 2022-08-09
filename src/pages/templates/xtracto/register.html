@@ -1,8 +1,7 @@
 
  {% extends "xtracto/login.html" %} 
   {% block title %} XTRACTO: Register page {% endblock title %}
-
-{% load crispy_forms_tags %}         
+        
 
 {% block content %}
 <!--Register--> 
@@ -13,14 +12,12 @@
       <p class="register-p-tag">Creating an account gives you access to all our great features</p>
 
       <div class="form-wrapper">
-        <form method="POST">
+        <form method="POST" >
 			{% csrf_token %}
-		  {{ register_form|crispy }}   
-          <!-- <label for="email">Email Address</label>
-          <input type="email" spellcheck="true" name="email" id="email" required title="Enter a valid Email">
+      {{ form }}
+          <!-- <input type="email" spellcheck="true" name="email" id="email" required title="Enter a valid Email"> -->
 
-          <label for="password">Password</label>
-          <input type="password" spellcheck="true" name="password" id="password" required> -->
+          <!-- <input type="password" spellcheck="true" name="password" id="password" required> -->
 
           <button type="submit" class="form-btn">Create Account</button>
 
