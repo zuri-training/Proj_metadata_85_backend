@@ -89,12 +89,10 @@ def register_request(request):
         user = authenticate(request, username=email)
         if user is None:
             if form.is_valid():
-
                 post = form.save(commit=False)
                 post.username = request.POST['username']
                 post.email = request.POST['username']
                 post.password = make_password(request.POST['password'])
-                
                 messages.success(request, "Registration successful.")
                 post.save()
                 user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
