@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
-from django.contrib.auth import authenticate, logout
-from django.contrib.auth import login as login_auth
+
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 
+# Registration and login
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, logout
+from django.contrib.auth import login as login_auth
 
 
 from django.http import HttpResponse
@@ -60,6 +63,13 @@ def verify(request):
 def docs(request):
     return render(request, "xtracto/docs.html")
 
+# def dashboard(request):
+#     return render(request, "xtracto/dashboard.html")
+
+
+
+
+@login_required
 def dashboard(request):
     return render(request, "xtracto/dashboard.html")
 
