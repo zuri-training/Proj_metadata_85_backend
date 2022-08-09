@@ -34,14 +34,12 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
 
-<<<<<<< HEAD
-=======
 
 
 
 # STATIC VIEWS
 
->>>>>>> 8f48a824d706f9bd597fcc8dcdc63c80f3959c28
+
 def index(request):
     return render(request, "xtracto/home.html")
 
@@ -51,7 +49,6 @@ def about(request):
 def contact(request):
     return render(request, "xtracto/contact.html")
 
-<<<<<<< HEAD
 
 # def register(request):
 #     if request.method == "POST":
@@ -93,7 +90,10 @@ def contact(request):
 def faqs(request):
     return render(request, "xtracto/faqs.html")
 
-=======
+
+def faqs(request):
+    return render(request, "xtracto/faqs.html")
+
 def faqs(request):
     return render(request, "xtracto/faqs.html")
 
@@ -103,7 +103,20 @@ def docs(request):
 
 
 # DYNAMIC VIEWS
->>>>>>> 8f48a824d706f9bd597fcc8dcdc63c80f3959c28
+
+def pwdreset(request):
+    return render(request, "xtracto/pwdreset.html")
+
+def verify(request):
+    return render(request, "xtracto/verify.html")
+
+
+
+
+
+
+# DYNAMIC VIEWS
+
 
 def pwdreset(request):
     return render(request, "xtracto/pwdreset.html")
@@ -112,17 +125,15 @@ def pwdreset(request):
 def verify(request):
     return render(request, "xtracto/verify.html")
 
-<<<<<<< HEAD
 
 def docs(request):
     return render(request, "xtracto/docs.html")
 
 
-=======
 
 # dashboard page with authentication
 @login_required
->>>>>>> 8f48a824d706f9bd597fcc8dcdc63c80f3959c28
+
 def dashboard(request):
     return render(request, "xtracto/dashboard.html")
 
@@ -310,6 +321,7 @@ def download_csv_data(request):
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 def register_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
@@ -354,7 +366,3 @@ def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
     return redirect("xtracto:home")
-=======
-
-
->>>>>>> 8f48a824d706f9bd597fcc8dcdc63c80f3959c28
