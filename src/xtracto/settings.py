@@ -29,6 +29,8 @@ if "SECRET_KEY" in os.environ:
 
 DEBUG = True
 
+
+# We'll remove localhost from allowed host when the project is done
 ALLOWED_HOSTS = ["xtracto85.herokuapp.com", "127.0.0.1"]
 
 

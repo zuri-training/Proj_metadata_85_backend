@@ -49,50 +49,6 @@ def contact(request):
     return render(request, "xtracto/contact.html")
 
 
-# def register(request):
-#     if request.method == "POST":
-#         if request.POST.get("email") and request.POST.get("password"):
-#             post = Registered()
-#             post.email = request.POST.get("email")
-#             post.password = request.POST.get("password")
-#             post.save()
-#             # mydictionary= {}
-#             # mydictionary['SuccessMsg'] = 'Form Submitted: You can now login'
-#             messages.success(request, "You nhave been succefully registered")
-#             return render(
-#                 request,
-#                 "xtracto/login.html",
-#             )
-#         else:
-#             return render(request, "xtracto/register.html")
-
-#     else:
-#         return render(request, "xtracto/register.html")
-
-
-# def login(request):
-#     if request.method == "POST":
-#         if request.POST.get("email") and request.POST.get("password"):
-#             email = request.POST["email"]
-#             password = request.POST["password"]
-
-#             user = authenticate(email=email, password=password)
-#             if user is not None:
-#                 login(request, user)
-#                 email = user.email
-#                 return render(request, "xtracto/dashboard.html", {"email": email})
-#             else:
-#                 messages.error(request, "Invalid details")
-#     return render(request, "xtracto/login.html")
-
-
-def faqs(request):
-    return render(request, "xtracto/faqs.html")
-
-
-def faqs(request):
-    return render(request, "xtracto/faqs.html")
-
 
 def faqs(request):
     return render(request, "xtracto/faqs.html")
