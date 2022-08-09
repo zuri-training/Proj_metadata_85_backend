@@ -89,6 +89,7 @@ a:active{
     width: 82.8604517%;
     padding: 32px 3.24261726% 32px 1.73711639%;
     height: max-content;
+    box-shadow: 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
 }
 
 .welcome{
@@ -130,9 +131,9 @@ a:active{
     padding: 32px 1.85292415%;
 }
 
-input[type=file]{
+/* input[type=file]{
     display: none;
-}
+} */
 .extract, .file{
     width: 100%;
     border: 1px dashed #979797;

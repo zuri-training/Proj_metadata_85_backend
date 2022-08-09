@@ -5,6 +5,21 @@ from django.contrib.auth.models import User
 
 # Create your forms here.
 
+<<<<<<< HEAD
+=======
+from django import forms
+
+
+# Registration form
+class Registrationform(forms.Form, forms.ModelForm):
+	username = forms.EmailField(label='Email Address', required=True, widget=forms.TextInput(attrs={'id': 'email'}))
+	password = forms.CharField(label='Password', max_length=200, widget=forms.PasswordInput(attrs={'id': 'password'}))
+	
+	class Meta:
+		model = User
+		fields= ("username", "password")
+
+>>>>>>> 8f48a824d706f9bd597fcc8dcdc63c80f3959c28
 
 class RegisterForm(forms.Form):
     email = forms.EmailField(
@@ -21,18 +36,3 @@ class RegisterForm(forms.Form):
 class FileUpload(forms.Form):
     upload_file = forms.FileField()
 
-
-# class NewUserForm(UserCreationForm):
-# 	email = forms.EmailField(required=True)
-
-# 	class Meta:
-# 		model = User
-# 		# fields = ("username", "email", "password1", "password2")
-# 		fields = ("email", "password")
-
-# 	def save(self, commit=True):
-# 		user = super(NewUserForm, self).save(commit=False)
-# 		user.email = self.cleaned_data['email']
-# 		if commit:
-# 			user.save()
-# 		return user

@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
-from .models import Registered
-from django.contrib.auth import login, authenticate, logout
+
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+
+# Registration and login
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, logout
+from django.contrib.auth import login as login_auth
 
 
 from django.http import HttpResponse
@@ -29,17 +34,24 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
 
+<<<<<<< HEAD
+=======
+
+
+
+# STATIC VIEWS
+
+>>>>>>> 8f48a824d706f9bd597fcc8dcdc63c80f3959c28
 def index(request):
     return render(request, "xtracto/home.html")
-
 
 def about(request):
     return render(request, "xtracto/About-us.html")
 
-
 def contact(request):
     return render(request, "xtracto/contact.html")
 
+<<<<<<< HEAD
 
 # def register(request):
 #     if request.method == "POST":
@@ -81,6 +93,17 @@ def contact(request):
 def faqs(request):
     return render(request, "xtracto/faqs.html")
 
+=======
+def faqs(request):
+    return render(request, "xtracto/faqs.html")
+
+def docs(request):
+    return render(request, "xtracto/docs.html")
+
+
+
+# DYNAMIC VIEWS
+>>>>>>> 8f48a824d706f9bd597fcc8dcdc63c80f3959c28
 
 def pwdreset(request):
     return render(request, "xtracto/pwdreset.html")
@@ -89,11 +112,17 @@ def pwdreset(request):
 def verify(request):
     return render(request, "xtracto/verify.html")
 
+<<<<<<< HEAD
 
 def docs(request):
     return render(request, "xtracto/docs.html")
 
 
+=======
+
+# dashboard page with authentication
+@login_required
+>>>>>>> 8f48a824d706f9bd597fcc8dcdc63c80f3959c28
 def dashboard(request):
     return render(request, "xtracto/dashboard.html")
 
@@ -106,10 +135,63 @@ def features(request):
     return render(request, "xtracto/features.html")
 
 
+def register_request(request):
+    if request.method == "POST":
+        form = Registrationform(request.POST)
+        email = request.POST['username']
+        user = authenticate(request, username=email)
+        if user is None:
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.username = request.POST['username']
+                post.email = request.POST['username']
+                post.password = make_password(request.POST['password'])
+                messages.success(request, "Registration successful.")
+                post.save()
+                
+                # login after ctreating account
+                user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+                login_auth(request, user)
+                # return render(request=request, template_name="xtracto/dashboard.html", context={})
+                return redirect("xtracto:dashboard")
+
+            messages.error(
+                request, "Unsuccessful registration. Invalid information.")
+        else:
+            messages.error(
+                request, "email Already exists")
+    else:
+        form = Registrationform()
+        return render(request=request, template_name="xtracto/register.html", context={'form': form})
+
+        
+    
+
+def login_request(request):
+    if request.method == "POST":
+        email= request.POST['email']
+        password= request.POST['password']
+        user = authenticate(request, username=email, password=password)
+
+        if user is not None:
+            login_auth(request,user)
+            return render(request, "xtracto/dashboard.html", {})
+
+        else:
+            messages.success(request, 'There was an error Logging in.')
+            return render(request, "xtracto/login.html", {})
+
+    else:
+        return render(request, "xtracto/login.html", {})
+
+
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect("xtracto:homepage")
+    return redirect("xtracto:home")
+
+
+
 
 
 # ------Metadata-------#
@@ -227,6 +309,7 @@ def download_csv_data(request):
 #     return render(request, template, context)
 
 
+<<<<<<< HEAD
 def register_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
@@ -271,3 +354,7 @@ def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
     return redirect("xtracto:home")
+=======
+
+
+>>>>>>> 8f48a824d706f9bd597fcc8dcdc63c80f3959c28
