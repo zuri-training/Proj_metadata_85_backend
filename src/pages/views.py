@@ -29,11 +29,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
 
-
-
-
-
-
 def index(request):
     return render(request, "xtracto/home.html")
 
@@ -82,17 +77,22 @@ def contact(request):
 #                 messages.error(request, "Invalid details")
 #     return render(request, "xtracto/login.html")
 
+
 def faqs(request):
     return render(request, "xtracto/faqs.html")
+
 
 def pwdreset(request):
     return render(request, "xtracto/pwdreset.html")
 
+
 def verify(request):
     return render(request, "xtracto/verify.html")
 
+
 def docs(request):
     return render(request, "xtracto/docs.html")
+
 
 def dashboard(request):
     return render(request, "xtracto/dashboard.html")
@@ -115,7 +115,7 @@ def logout_request(request):
 # ------Metadata-------#
 class view_xtracto(View):
     success_url = reverse_lazy("xtracto:viewXtracto")
-    template_name = "upload.html"
+    template_name = "xtracto/upload.html"
 
     def post(self, request):
         form = FileUpload(request.POST, request.FILES)
@@ -182,7 +182,7 @@ class view_xtracto(View):
 def result(request):
     xtracto = request.session.get("xtracto")
     context = xtracto
-    return render(request, "result.html", context)
+    return render(request, "xtracto/result.html", context)
 
 
 # ---------------------------------------------#
@@ -227,8 +227,6 @@ def download_csv_data(request):
 #     return render(request, template, context)
 
 
-
-
 def register_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
@@ -237,18 +235,21 @@ def register_request(request):
             login(request, user)
             messages.success(request, "Registration successful.")
             return redirect("xtracto:login")
-        messages.error(
-            request, "Unsuccessful registration. Invalid information.")
+        messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
-    return render(request=request, template_name="xtracto/register.html", context={"register_form": form})
+    return render(
+        request=request,
+        template_name="xtracto/register.html",
+        context={"register_form": form},
+    )
 
 
 def login_request(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password')
+            email = form.cleaned_data.get("email")
+            password = form.cleaned_data.get("password")
             user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
@@ -259,7 +260,11 @@ def login_request(request):
         else:
             messages.error(request, "Invalid username or password.")
     form = AuthenticationForm()
-    return render(request=request, template_name="xtracto/login.html", context={"login_form": form})
+    return render(
+        request=request,
+        template_name="xtracto/login.html",
+        context={"login_form": form},
+    )
 
 
 def logout_request(request):

@@ -5,11 +5,19 @@ from django.contrib.auth.models import User
 
 # Create your forms here.
 
-class RegisterForm(forms.Form):
-	email = forms.EmailField(label='email', widget=forms.TextInput(attrs={'id': 'email'}))
-	password =	forms.CharField(label='password', max_length=200, widget=forms.TextInput(attrs={'id': 'password'}))
 
-#-------metadata form----#
+class RegisterForm(forms.Form):
+    email = forms.EmailField(
+        label="email", widget=forms.TextInput(attrs={"id": "email"})
+    )
+    password = forms.CharField(
+        label="password",
+        max_length=200,
+        widget=forms.TextInput(attrs={"id": "password"}),
+    )
+
+
+# -------metadata form----#
 class FileUpload(forms.Form):
     upload_file = forms.FileField()
 
