@@ -37,22 +37,26 @@ from django.contrib.auth.models import User, auth
 
 
 
-
+# STATIC VIEWS
 
 def index(request):
     return render(request, "xtracto/home.html")
 
-
 def about(request):
     return render(request, "xtracto/About-us.html")
-
 
 def contact(request):
     return render(request, "xtracto/contact.html")
 
-
 def faqs(request):
     return render(request, "xtracto/faqs.html")
+
+def docs(request):
+    return render(request, "xtracto/docs.html")
+
+
+
+# DYNAMIC VIEWS
 
 def pwdreset(request):
     return render(request, "xtracto/pwdreset.html")
@@ -60,15 +64,8 @@ def pwdreset(request):
 def verify(request):
     return render(request, "xtracto/verify.html")
 
-def docs(request):
-    return render(request, "xtracto/docs.html")
 
-# def dashboard(request):
-#     return render(request, "xtracto/dashboard.html")
-
-
-
-
+# dashboard page with authentication
 @login_required
 def dashboard(request):
     return render(request, "xtracto/dashboard.html")
@@ -95,9 +92,13 @@ def register_request(request):
                 post.password = make_password(request.POST['password'])
                 messages.success(request, "Registration successful.")
                 post.save()
+                
+                # login after ctreating account
                 user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
                 login_auth(request, user)
+                # return render(request=request, template_name="xtracto/dashboard.html", context={})
                 return redirect("xtracto:dashboard")
+
             messages.error(
                 request, "Unsuccessful registration. Invalid information.")
         else:
