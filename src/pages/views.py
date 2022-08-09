@@ -165,10 +165,14 @@ def register_request(request):
                 login_auth(request, user)
                 # return render(request=request, template_name="xtracto/dashboard.html", context={})
                 return redirect("xtracto:dashboard")
+            else:
+                form = Registrationform()
+                return render(request=request, template_name="xtracto/register.html", context={'form': form})
 
-            messages.error(request, "Unsuccessful registration. Invalid information.")
         else:
             messages.error(request, "email Already exists")
+            form = Registrationform()
+            return render(request=request, template_name="xtracto/register.html", context={'form': form})
     else:
         form = Registrationform()
         return render(
