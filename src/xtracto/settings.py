@@ -146,7 +146,14 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# To send email for password reset
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+# for production: create folder named 'sent_emails'
+
 
 MEDIA_URL = '/media/'
 # https://xtracto85.herokuapp.com/ | https://git.heroku.com/xtracto85.git
