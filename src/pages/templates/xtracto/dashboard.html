@@ -145,11 +145,9 @@
             {% block notfordocs3 %}
         <div class="upload-form">
             <label class="file">
-                
-                {% include 'xtracto/upload.html' %}
-                
-                {% comment %} <input type="file" class="upload-file">
-                <input type="submit" value="Upload file" class="file-submit" name="submit"> {% endcomment %}
+                <a style="display: block; width: 10%; height: 5%; text-align: center; margin: 1rem auto 1rem; font-size: 20px;
+                color: purple; text-decoration: none; font-weight: bold;" href="/viewXtracto">Extract MetaData</a>
+                {% comment %} {% include 'xtracto/upload.html' %} {% endcomment %}
             </label>
 
             

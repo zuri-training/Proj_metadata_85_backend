@@ -57,27 +57,31 @@
   <main>
 
 	<div style="margin: auto;">
-		<h1 style="text-align: center">METADATA</h1>
+		<h1 style="text-align: center">UPLOADED FILES</h1>
 	
 		<table border="3" style="width: 50%; background-color:#28282B; color:white; font-size:20px; margin: auto;">
 			
-			<tbody>
-				{% for data in xtracto %}
-				<tr>
-					<td style="padding: 1rem 1rem">{{data.label_name}}</td>
-					<td style="padding: 1rem 1rem">{{data.label_value}}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
+			<thead>
+                <th>DATE</th>
+                <th>FILE NAME</th>
+                <th>DOWNLOAD?</th>
+                <th>DELETE?</th>
+            </thead>
+        
+            {% for i in files %}
+            <tr></tr>
+            {% if i.owner == user%}
+            <td style="padding: 1rem 1rem;">{{ i.created_at }}</td>
+            <td style="padding: 1rem 1rem;">{{ i.file_name }} </td>
+            <td ><a style="color:green" href="{{i.uploaded_file.url}}" download="{{i.uploaded_file.url}}"><strong>Download</strong></a></td>
+            <td style="padding: 1rem 1rem;"><a style="color:red" href="delete/{{i.id}}">Delete file</a></td>
+            {% endif %}
+            </tr>
+            {% endfor %}
+
+
 		</table>
-	 
-		<a style="display: block; width: 10%; height: 5%; text-align: center; margin: 1rem auto 1rem; font-size: 2rem;
-				  color: red; text-decoration: none; font-weight: bold;"
-				href="/download">Download</a>
-	
-			<a style="display: block; width: 10%; height: 5%; text-align: center; margin: 1rem auto 2rem; font-size: 2rem;
-				  color: green; text-decoration: none; font-weight: bold;"
-				href="/save_metadata">Save</a>
+
 		
 	</div>
 
@@ -187,6 +191,8 @@
 </body>
 
 </html>
+ 
+ 
  
  
  

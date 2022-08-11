@@ -18,12 +18,12 @@ from django.utils.encoding import smart_str
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from tinytag import TinyTag
-import csv
+import csv, json
 
-# from metadata.models import Contact
+from pages.models import Files, Records
 from django.http import HttpResponseRedirect
 
-import xtracto
+import pages
 
 from .forms import FileUpload
 from django.urls import reverse_lazy
@@ -47,7 +47,6 @@ def about(request):
 
 def contact(request):
     return render(request, "xtracto/contact.html")
-
 
 
 def faqs(request):
@@ -123,12 +122,20 @@ def register_request(request):
                 return redirect("xtracto:dashboard")
             else:
                 form = Registrationform()
-                return render(request=request, template_name="xtracto/register.html", context={'form': form})
+                return render(
+                    request=request,
+                    template_name="xtracto/register.html",
+                    context={"form": form},
+                )
 
         else:
             messages.error(request, "email Already exists")
             form = Registrationform()
-            return render(request=request, template_name="xtracto/register.html", context={'form': form})
+            return render(
+                request=request,
+                template_name="xtracto/register.html",
+                context={"form": form},
+            )
     else:
         form = Registrationform()
         return render(
@@ -162,10 +169,22 @@ def logout_request(request):
     return redirect("xtracto:home")
 
 
+# --------------------------------------@
+# ----------------View metadata Records----------------@
+def metadata_view(request, pk):
+    data = Records.objects.get(id=pk)
+    xtracto = json.loads(data.data)
+    context = xtracto
+    request.session["xtracto"] = context
+    return render(request, "xtracto/result.html", context)
+
+
 # ------Metadata-------#
-class view_xtracto(View):
+class view_xtracto(LoginRequiredMixin, View):
     success_url = reverse_lazy("xtracto:viewXtracto")
     template_name = "xtracto/upload.html"
+    login_url = "/login"
+    REDIRECT_FIELD_NAME = "next"
 
     def post(self, request):
         form = FileUpload(request.POST, request.FILES)
@@ -216,6 +235,16 @@ class view_xtracto(View):
                         context["xtracto"].append(
                             {"label_name": label_name, "label_value": label_value}
                         )
+            if uploaded_file:
+                name = uploaded_file.name
+                owner = request.user
+                file = Files.objects.filter(file_name=name).exists()
+
+                if not file:
+                    data = Files(
+                        file_name=name, uploaded_file=uploaded_file, owner=owner
+                    )
+                    data.save()
 
             request.session["xtracto"] = context
             return redirect("xtracto:result")
@@ -237,6 +266,18 @@ def result(request):
 
 # ---------------------------------------------#
 
+# -------------uploaded files------------------@
+class uploaded_records(LoginRequiredMixin, View):
+    login_url = "/login"
+    model = Files
+    template_name = "xtracto/uploaded_records.html"
+
+    def get(set, request):
+        owner = request.user
+        files = Files.objects.all()
+        context = {"owner": owner, "files": files}
+        return render(request, "xtracto/uploaded_records.html", context)
+
 
 def download_csv_data(request):
     #  content type
@@ -245,8 +286,7 @@ def download_csv_data(request):
 
     response = HttpResponse(content_type="text/csv")
     # file name
-    response["Content-Disposition"] = "attachment; filename= label_value.csv"
-    # ' "download.csv" '
+    response["Content-Disposition"] = "attachment; filename= sample.csv"
 
     writer = csv.writer(response, csv.excel)
     response.write("\ufeff".encode("utf8"))
@@ -265,16 +305,46 @@ def download_csv_data(request):
 
 
 # saving the extracted metadata
-# still working on this code
 # ---------------------------
-# def saveMeta(request):
-#     template = "save.html"
-#     form = saveMetada(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         return redirect("/")
-#     context = {"form": form}
-#     return render(request, template, context)
+def save_metadata(request):
+    xtracto = request.session.get("xtracto")
+    name = xtracto["xtracto"][0]
+    owner = request.user
+    if (
+        Records.objects.filter(name=name).exists()
+        and Records.objects.get(name=name).owner == owner
+    ):
+        messages.info(request, "File already exist")
+        return render(request, "xtracto/collections.html")
+    else:
+        data = json.dumps(xtracto)
+        records = Records(data=data, name=name, owner=owner)
+        records.save()
+        messages.info(request, "succesfully saved")
+        return render(request, "xtracto/dashboard.html")
 
 
+# --------------------------------------@
+# ----------------Records----------------@
 
+
+class records(LoginRequiredMixin, View):
+    login_url = "/login"
+    success_url = reverse_lazy("xtracto:records")
+    model = Records
+    template_name = "xtracto/save_metadata.html"
+
+    def get(self, request, pk):
+        user = request.user
+        records = Records.objects.all()
+        context = {"records": records, "user": user}
+        return render(request, self.template_name, context)
+
+
+# --------------------------------------@
+# ----------------Delete----------------@
+def delete(request, pk):
+    file = Files.objects.get(id=pk)
+    file.delete()
+    messages.info(request, f"succesfully Deleted")
+    return redirect("/uploaded_records")

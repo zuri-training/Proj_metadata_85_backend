@@ -5,7 +5,21 @@
 
 {% block main %}
 <p class="welcome">
-    My Collections
+    <strong>My Collections</strong>
 </p>
+
+<div>
+    
+    <a style="font-size:25px; color:purple" href="/viewXtracto">Extract MetaData</a><br>
+    <p></p>
+    <a style="font-size:25px; color:purple" href="{% url 'xtracto:records' user.id %}">Metadata Records</a><br>
+    <p></p>
+    <a style="font-size:25px; color:purple" href="{% url 'xtracto:uploaded_records' %}">Uploaded Files</a>
+    
+
+</div>
 {% endblock %}
+
+
+				
     

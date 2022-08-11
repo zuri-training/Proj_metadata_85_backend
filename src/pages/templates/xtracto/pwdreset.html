@@ -17,6 +17,7 @@
             {% endblock %}
         </h1>
 <form>
+    {% csrf_token %}
     {% block form %}
     <label for="password">New Password</label>
           <input type="password" spellcheck="true" name="password" id="password" required>

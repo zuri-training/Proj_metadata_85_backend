@@ -40,6 +40,7 @@
 
         <div class="contact-form">
           <form action="">
+            {% csrf_token %}
             <label for="name">Name</label>
             <input type="email" spellcheck="true" name="email" id="name" required
               pattern="^?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]$" placeholder="Name" title="Enter a valid Name">
