@@ -146,5 +146,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+MEDIA_URL = '/media/'
 # https://xtracto85.herokuapp.com/ | https://git.heroku.com/xtracto85.git

@@ -9,6 +9,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as login_auth
+import random
 
 
 from django.http import HttpResponse
@@ -76,6 +77,8 @@ def pwdreset(request):
 
 
 def verify(request):
+
+    random.randint(100000, 999999)
     return render(request, "xtracto/verify.html")
 
 
@@ -89,10 +92,12 @@ def dashboard(request):
     return render(request, "xtracto/dashboard.html")
 
 
+@login_required
 def collections(request):
     return render(request, "xtracto/collections.html")
 
 
+@login_required
 def features(request):
     return render(request, "xtracto/features.html")
 
@@ -280,7 +285,6 @@ class uploaded_records(LoginRequiredMixin, View):
 
 
 def download_csv_data(request):
-    #  content type
     xtracto = request.session.get("xtracto")
     metadata_label = list(xtracto.keys())[1:]
 
