@@ -11,10 +11,22 @@
       <h1 class="register-h1-tag">Join us</h1>
       <p class="register-p-tag">Creating an account gives you access to all our great features</p>
 
+
+      {% for each in messages %}
+
+      <p>
+        {{messages}}
+      </p>
+      {% endfor %}
+
       <div class="form-wrapper">
         <form method="POST" >
+          
+
+      
 			{% csrf_token %}
       {{ form }}
+      
           <!-- <input type="email" spellcheck="true" name="email" id="email" required title="Enter a valid Email"> -->
 
           <!-- <input type="password" spellcheck="true" name="password" id="password" required> -->

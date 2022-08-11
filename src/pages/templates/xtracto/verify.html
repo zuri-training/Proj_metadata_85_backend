@@ -1,0 +1,35 @@
+{% extends 'xtracto/About-us.html' %}
+
+{% load static %}
+{% block title %}
+Verify
+{% endblock %}
+
+{% block css %}
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+    <link href="{% static 'css/verify.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="verify-div">
+
+    <h1>
+        Verify your email
+    </h1>
+    <p>
+        Enter your 6 digit code sent to your email
+    </p>
+    <form method="POST" action="">
+        <input type="text" name="Code" class="code" >
+        <input type="submit" value= "Done" name="submit" class="Codesubmit">
+    </form>
+
+    
+
+</div>
+
+{% endblock %}

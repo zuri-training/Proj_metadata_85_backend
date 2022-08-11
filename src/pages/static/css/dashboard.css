@@ -3,6 +3,20 @@ a:active{
     background-color: #1D3557;
     color: #FFFFFF;
 }
+.js-btn, .js-btn-x{
+    display: none;
+    color: #743CA8;
+}
+.logo{
+    display: inline-block;
+    margin: 1.44759699% 0 1.44759699% 6.94846555%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+    color: #435773;
+}
+
 
 .dash-nav{
     display: inline-block;

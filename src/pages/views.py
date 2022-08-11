@@ -10,6 +10,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as login_auth
 import random
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 from django.http import HttpResponse
@@ -100,10 +102,7 @@ def pwdreset(request):
     return render(request, "xtracto/pwdreset.html")
 
 
-def verify(request):
 
-    random.randint(100000, 999999)
-    return render(request, "xtracto/verify.html")
 
 
 def docs(request):
@@ -125,45 +124,52 @@ def collections(request):
 def features(request):
     return render(request, "xtracto/features.html")
 
+def verify(request):
+
+    # verificationCode = random.randint(100000, 999999)
+    # # email = request.session.get('email')
+    # subject = 'Welcome new user, Xtracto got you covered on metadata extraction'
+    # message = ' Here is your verification code '+ str(verificationCode)
+    # email_from = settings.EMAIL_HOST_USER
+    # recipient_list = ['muhammedbayero@gmail.com',]
+    # send_mail(subject, message, email_from, recipient_list )
+    # if request == POST and :
+
+    return render(request, "xtracto/verify.html")
 
 def register_request(request):
     if request.method == "POST":
         form = Registrationform(request.POST)
         email = request.POST["username"]
         user = authenticate(request, username=email)
+        request.session['email']= email
         if user is None:
             if form.is_valid():
                 post = form.save(commit=False)
                 post.username = request.POST["username"]
                 post.email = request.POST["username"]
                 post.password = make_password(request.POST["password"])
-                messages.success(request, "Registration successful.")
+                messages.success(request, "Registration successful, Please log in.")
                 post.save()
-
-                # login after ctreating account
-                user = authenticate(
-                    request,
-                    username=request.POST["username"],
-                    password=request.POST["password"],
-                )
-                login_auth(request, user)
-                # return render(request=request, template_name="xtracto/dashboard.html", context={})
-                return redirect("xtracto:dashboard")
+                print
+                return render(request, "xtracto/login.html", {'status_msg':messages})
+                # return redirect("xtracto:verify")
             else:
-                form = Registrationform()
+                messages.success(request, "email Already exists,please Login")
                 return render(
+                    
                     request=request,
                     template_name="xtracto/register.html",
-                    context={"form": form},
+                    context={"form": form, 'status_msg':messages},
                 )
 
         else:
-            messages.error(request, "email Already exists")
+            messages.success(request, "email Already exists,please Login")
             form = Registrationform()
             return render(
                 request=request,
-                template_name="xtracto/register.html",
-                context={"form": form},
+                template_name="xtracto/login.html",
+                context={'status_msg':messages},
             )
     else:
         form = Registrationform()
@@ -172,6 +178,7 @@ def register_request(request):
             template_name="xtracto/register.html",
             context={"form": form},
         )
+        
 
 
 def login_request(request):
@@ -182,6 +189,7 @@ def login_request(request):
 
         if user is not None:
             login_auth(request, user)
+            messages.success(request, "Login Successful")
             return render(request, "xtracto/dashboard.html", {})
 
         else:

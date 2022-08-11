@@ -19,6 +19,7 @@ urlpatterns = [
     path("features/", views.features, name="features"),
     path("docs/", views.docs, name="docs"),
     path("faqs/", views.faqs, name="faqs"),
+    path("verify/", views.verify, name="verify"),
 
     # password reset urls
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(
