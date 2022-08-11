@@ -126,14 +126,14 @@ def features(request):
 
 def verify(request):
 
-    # verificationCode = random.randint(100000, 999999)
-    # # email = request.session.get('email')
-    # subject = 'Welcome new user, Xtracto got you covered on metadata extraction'
-    # message = ' Here is your verification code '+ str(verificationCode)
-    # email_from = settings.EMAIL_HOST_USER
-    # recipient_list = ['muhammedbayero@gmail.com',]
-    # send_mail(subject, message, email_from, recipient_list )
-    # if request == POST and :
+    verificationCode = random.randint(100000, 999999)
+    # email = request.session.get('email')
+    subject = 'Welcome new user, Xtracto got you covered on metadata extraction'
+    message = ' Here is your verification code '+ str(verificationCode)
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = ['muhammedbayero@gmail.com',]
+    send_mail(subject, message, email_from, recipient_list )
+    # if request.method == POST and :
 
     return render(request, "xtracto/verify.html")
 
@@ -152,8 +152,8 @@ def register_request(request):
                 messages.success(request, "Registration successful, Please log in.")
                 post.save()
                 print
-                return render(request, "xtracto/login.html", {'status_msg':messages})
-                # return redirect("xtracto:verify")
+                # return render(request, "xtracto/login.html", {'status_msg':messages})
+                return redirect("xtracto:login")
             else:
                 messages.success(request, "email Already exists,please Login")
                 return render(
@@ -182,6 +182,7 @@ def register_request(request):
 
 
 def login_request(request):
+    
     if request.method == "POST":
         email = request.POST["email"]
         password = request.POST["password"]
