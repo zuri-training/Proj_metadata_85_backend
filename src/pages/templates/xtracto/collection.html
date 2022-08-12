@@ -38,7 +38,7 @@
                 <div class="footer">
                     <p class="side-link"><a href="" class="fa fa-cog"></a><a href="{% url 'xtracto:features' %}"
                             style="padding-left: 8px;">Settings</a></p>
-                    <p class="side-link"><a href="" class="fa fa-sign-out"></a><a href="{% url 'xtracto:features' %}"
+                    <p class="side-link"><a href="" class="fa fa-sign-out"></a><a href="{% url 'xtracto:logout' %}"
                             style="padding-left: 8px;">Log out</a></p>
                 </div>
             </div>
@@ -160,7 +160,9 @@
             </div>
 
             {% endblock %}
+            {% block notForFeatures%}
 
+            
             <!-- right section -->
             <div class="right">
                 <div class="r-top">
@@ -178,6 +180,7 @@
 
             </div>
         </div>
+        {% endblock %}
 
     </main>
 </body>
