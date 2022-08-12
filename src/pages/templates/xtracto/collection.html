@@ -8,7 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    
     <link rel="stylesheet" href="{% static 'css/collection.css' %}">
+    {% endblock %}
     <title>Collections:Xtracto</title>
 </head>
 
@@ -19,21 +24,21 @@
             <!-- left panel -->
             <div class="left">
                 <h2>XTRACTO</h2>
-                <p class="side-link"><a href="#" class="fa fa-home"></a><a href="#home" class="hm"
+                <p class="side-link"><a href="#" class="fa fa-home"></a><a href="{% url 'xtracto:home' %}" class="hm"
                         style="padding-left: 8px;">Home</a></p>
-                <p class="side-link"><a href="" class="fa fa-user-o"></a><a href="#profile"
+                <p class="side-link"><a href="" class="fa fa-user-o"></a><a href="{% url 'xtracto:features' %}"
                         style="padding-left: 8px;">Profile</a></p>
-                <p class="side-link"><a href="" class="fa fa-dashboard"></a><a href="dashboard.html"
+                <p class="side-link"><a href="" class="fa fa-dashboard"></a><a href="{% url 'xtracto:dashboard' %}"
                         style="padding-left: 8px;">Dashboard</a></p>
-                <p class="side-link"><a href="" class="	fa fa-th"></a><a href="collection.html"
+                <p class="side-link"><a href="" class="	fa fa-th"></a><a href="{% url 'xtracto:collection' %}"
                         style="padding-left: 8px;">Collections</a></p>
-                <p class="side-link"><a href="" class="fa fa-diamond"></a><a href="#features"
+                <p class="side-link"><a href="" class="fa fa-diamond"></a><a href="{% url 'xtracto:features' %}"
                         style="padding-left: 8px;">Other Features</a></p>
 
                 <div class="footer">
-                    <p class="side-link"><a href="" class="fa fa-cog"></a><a href="#features"
+                    <p class="side-link"><a href="" class="fa fa-cog"></a><a href="{% url 'xtracto:features' %}"
                             style="padding-left: 8px;">Settings</a></p>
-                    <p class="side-link"><a href="" class="fa fa-sign-out"></a><a href="#features"
+                    <p class="side-link"><a href="" class="fa fa-sign-out"></a><a href="{% url 'xtracto:features' %}"
                             style="padding-left: 8px;">Log out</a></p>
                 </div>
             </div>
@@ -57,7 +62,7 @@
                     </p>
                 </div>
             </div>
-
+{% block middlesection%}
             <!-- middle section -->
             <div class="middle">
                         
@@ -83,13 +88,19 @@
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
                             </tr>
                             <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
                                         style="width: 20px;margin-right: 15px;">_category_.csv</td>
                                 <td class="tc2">July 11, 2022</td>
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
                             </tr>
                             <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
+                                        style="width: 20px;margin-right: 15px;">graphics-details.png</td>
+                                <td class="tc2">July 22, 2022</td>
+                                <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
+                            </tr>
+                            <tr>
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
                                         style="width: 20px;margin-right: 15px;">graphics-details.png</td>
                                 <td class="tc2">July 22, 2022</td>
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
@@ -101,49 +112,43 @@
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
                             </tr>
                             <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
                                         style="width: 20px;margin-right: 15px;">graphics-details.png</td>
                                 <td class="tc2">July 22, 2022</td>
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
                             </tr>
                             <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
                                         style="width: 20px;margin-right: 15px;">graphics-details.png</td>
                                 <td class="tc2">July 22, 2022</td>
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
                             </tr>
                             <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
                                         style="width: 20px;margin-right: 15px;">graphics-details.png</td>
                                 <td class="tc2">July 22, 2022</td>
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
                             </tr>
                             <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
                                         style="width: 20px;margin-right: 15px;">graphics-details.png</td>
                                 <td class="tc2">July 22, 2022</td>
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
                             </tr>
                             <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
                                         style="width: 20px;margin-right: 15px;">graphics-details.png</td>
                                 <td class="tc2">July 22, 2022</td>
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
                             </tr>
                             <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
                                         style="width: 20px;margin-right: 15px;">graphics-details.png</td>
                                 <td class="tc2">July 22, 2022</td>
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
                             </tr>
                             <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
-                                        style="width: 20px;margin-right: 15px;">graphics-details.png</td>
-                                <td class="tc2">July 22, 2022</td>
-                                <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
-                            </tr>
-                            <tr>
-                                <td class="tc2"><img src="pdf-icon.svg" alt=""
+                                <td class="tc2"><img src="{% static 'images/pdf-icon.svg' %}" alt=""
                                         style="width: 20px;margin-right: 15px;">graphics-details.png</td>
                                 <td class="tc2">July 22, 2022</td>
                                 <td class="tc2 dots"><a href="" class="fa fa-ellipsis-v"></a></td>
@@ -154,12 +159,15 @@
                 </div>
             </div>
 
+            {% endblock %}
+
             <!-- right section -->
             <div class="right">
                 <div class="r-top">
                     <p style="padding-top: 3.5em;">JPG/JPEG, GIF</p>
                     <p>PNG, JSON, CSV, PDF</p>
-                    <p class="upload" style="padding-top: 2em;"><input type="submit" value="Upload file"></p>
+                    <a class="file-submit" href="/viewXtracto">
+                        <p class="upload" style="padding-top: 2em;"><input type="submit" value="Upload file"></p></a>
                 </div>
                 <p style="padding-left: 1em;">Extract Data</p>
                 <div class="r-bottom">

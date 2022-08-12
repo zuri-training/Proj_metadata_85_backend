@@ -161,6 +161,9 @@ def register_request(request):
 
 
 def login_request(request):
+    # if User.is_authenticated:
+    #     context = {'username':email}
+    #     return render(request, "xtracto/dashboard.html", context)
     
     if request.method == "POST":
         email = request.POST["email"]
@@ -169,7 +172,6 @@ def login_request(request):
 
         if user is not None:
             login_auth(request, user)
-            messages.success(request, "Login Successful")
             context = {'username':email}
             return render(request, "xtracto/dashboard.html", context)
 
