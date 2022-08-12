@@ -50,9 +50,7 @@ ul{
 
 
 @media only screen and (max-width: 900px) {
-    .dash-nav{
-        width: 30%;
-    }
+    
 
     .main-docs, .libraries, .getting_started{
     
@@ -61,12 +59,10 @@ ul{
 }
 
 @media only screen and (max-width: 500px) {
-    .dash-nav{
-        width: 30%;
-    }
+    
 
     .main-docs, .libraries, .getting_started{
-    
+        
         width: 100%;
     }
     .js-btn{

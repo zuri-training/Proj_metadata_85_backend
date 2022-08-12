@@ -167,8 +167,9 @@ nav ul li {
 /* First section/ top section code goes here */
 .first-section {
     background-image: url('../images-homepage/hold-tablet.png');
+    background-size: cover;
     /* code below makes bkg image fit whole div */
-    background-size: 100% 100%;
+    /* background-size: 100% 100%; */
 }
 
 .first-inner {

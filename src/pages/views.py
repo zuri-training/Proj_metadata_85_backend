@@ -59,6 +59,9 @@ def faqs(request):
 def docs(request):
     return render(request, "xtracto/docs.html")
 
+def docs(request):
+    return render(request, "xtracto/docs.html")
+
 
 # DYNAMIC VIEWS
 
@@ -105,14 +108,15 @@ def pwdreset(request):
 
 
 
-def docs(request):
-    return render(request, "xtracto/docs.html")
+
 
 
 # dashboard page with authentication
 @login_required
 def dashboard(request):
-    return render(request, "xtracto/dashboard.html")
+    username= request.session.get('username')
+    context = {'username':username}
+    return render(request, "xtracto/dashboard.html", context)
 
 
 @login_required
@@ -191,7 +195,8 @@ def login_request(request):
         if user is not None:
             login_auth(request, user)
             messages.success(request, "Login Successful")
-            return render(request, "xtracto/dashboard.html", {})
+            context = {'username':email}
+            return render(request, "xtracto/dashboard.html", context)
 
         else:
             messages.success(request, "There was an error Logging in.")

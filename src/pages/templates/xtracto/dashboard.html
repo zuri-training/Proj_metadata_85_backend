@@ -67,7 +67,7 @@
                 </a>
             </p>
         </div>
-        <div>
+        <div class="logout-div">
             <p>
                 <i class="fa-solid fa-gear"></i> Settings
             </p>
@@ -144,11 +144,10 @@
 
             {% block notfordocs3 %}
         <div class="upload-form">
-            <label class="file">
-                <a style="display: block; width: 10%; height: 5%; text-align: center; margin: 1rem auto 1rem; font-size: 20px;
-                color: purple; text-decoration: none; font-weight: bold;" href="/viewXtracto">Extract MetaData</a>
+            <div class="file">
+                <a class="file-submit" href="/viewXtracto">Upload file</a>
                 {% comment %} {% include 'xtracto/upload.html' %} {% endcomment %}
-            </label>
+            </div>
 
             
             <div class="extract"> 

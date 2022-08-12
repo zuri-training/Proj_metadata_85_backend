@@ -163,9 +163,10 @@ a:active{
 }
 
 .file-submit{
+    position: relative;
     margin-left: 35%;
     margin-top: 50%;
-    width: 31.5656566%;
+    width: 50%;
     border-radius: 8px;
     border-style: none;
     height: 40px;
@@ -186,3 +187,47 @@ a:active{
     font-size: 16px;
     color: #FFFFFF;
   }
+
+
+  @media only screen and (max-width: 1320px) {
+    .top{
+        margin-left: 100px;
+        width: 70%;
+    }
+    .search_box{
+        margin-right: 30%;
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+    .dash-nav{
+        padding: 20px;
+    }
+    
+
+}
+
+@media only screen and (max-width: 650px) {
+    .links, .logout-div{
+        display: none;
+    }
+    .logo{
+        font-size: 30px;
+    }
+    .top{
+        margin-left: 100px;
+        width: 65%;
+    }
+    .search_box{
+        margin-right: 20px;
+        width: 50%;
+        
+    }
+    .content{
+        width: 100%;
+        left: 0;
+    }
+    
+
+}
