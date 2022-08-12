@@ -27,7 +27,7 @@ SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be us
 if "SECRET_KEY" in os.environ:
     SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = True
+DEBUG = False
 
 
 # We'll remove localhost from allowed host when the project is done
