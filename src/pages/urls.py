@@ -16,8 +16,10 @@ urlpatterns = [
     path("contact/", views.contact, name="contact"),
     path("dashboard/", views.dashboard, name="dashboard"),
     path("collections/", views.collections, name="collections"),
+    path("collection/", views.collection, name="collection"),
     path("features/", views.features, name="features"),
     path("docs/", views.docs, name="docs"),
+    path("dash/", views.dash, name="dash"),
     path("faqs/", views.faqs, name="faqs"),
     path("password/", PasswordsChangeView.as_view(
         template_name="xtracto/password_reset_confirm.html")),

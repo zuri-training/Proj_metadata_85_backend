@@ -87,14 +87,21 @@ def dashboard(request):
     return render(request, "xtracto/dashboard.html", context)
 
 
+
 @login_required
 def collections(request):
     return render(request, "xtracto/collections.html")
 
 
-@login_required
+
 def features(request):
     return render(request, "xtracto/features.html")
+
+def collection(request):
+    return render(request, "xtracto/collection.html")
+
+def dash(request):
+    return render(request, "main/dashboard.html")
 
 def verify(request):
 
