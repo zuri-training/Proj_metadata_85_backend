@@ -158,14 +158,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 # for production: create folder named 'sent_emails'
 
-# email confirmation during user registration
-EMAIL_USE_TLS = True  
-EMAIL_HOST = 'smtp.mail.yahoo.com'  
-# EMAIL_HOST_USER = 'yinoITzuri@gmail.com'
-EMAIL_HOST_USER = 'muhammedbayero@yahoo.com'  
-EMAIL_HOST_PASSWORD = 'password'
-# EMAIL_HOST_PASSWORD = 'password'  
-EMAIL_PORT = 465  
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = 'nextblog6@gmail.com'
+EMAIL_HOST_PASSWORD = 'pzraoxykmkhrxdbv'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Xtracto Team <noreply@extracto.com>'
+
 
 MEDIA_URL = '/media/'
 # https://xtracto85.herokuapp.com/ | https://git.heroku.com/xtracto85.git
