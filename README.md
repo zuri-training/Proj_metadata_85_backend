@@ -1,5 +1,8 @@
 Architecture- Monolith (Django Templating)
 
+manage.py file directory - src/manage.py
+requirements.txt file- src/requirements.txt
+
 
 # Xtracto - A web app to Fetch metadata
 
