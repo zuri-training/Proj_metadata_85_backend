@@ -1,3 +1,6 @@
+Architecture- Monolith (Django Templating)
+
+
 # Xtracto - A web app to Fetch metadata
 
 ## Product Brief 
