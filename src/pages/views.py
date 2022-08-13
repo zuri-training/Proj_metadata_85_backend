@@ -26,7 +26,7 @@ import csv, json
 from pages.models import Files, Records
 from django.http import HttpResponseRedirect
 
-import pages
+import pages, smtplib, ssl
 
 from .forms import FileUpload
 from django.urls import reverse_lazy
@@ -79,41 +79,78 @@ def pwdreset(request):
 
 
 
-# dashboard page with authentication
+# REQUIRES AUTH
 @login_required
 def dashboard(request):
     username= request.session.get('username')
     context = {'username':username}
     return render(request, "xtracto/dashboard.html", context)
 
-
-
 @login_required
 def collections(request):
     return render(request, "xtracto/collections.html")
 
 
-
+@login_required
 def features(request):
     return render(request, "xtracto/features.html")
 
+@login_required
 def collection(request):
     return render(request, "xtracto/collection.html")
 
+@login_required
 def dash(request):
     return render(request, "main/dashboard.html")
 
+
+# REG LOGIN VERIFICATION
 def verify(request):
 
-    verificationCode = random.randint(100000, 999999)
-    # email = request.session.get('email')
-    subject = 'Welcome new user, Xtracto got you covered on metadata extraction'
-    message = ' Here is your verification code '+ str(verificationCode)
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = ['muhammedbayero@gmail.com',]
-    send_mail(subject, message, email_from, recipient_list )
-    # if request.method == POST and :
+    # verificationCode = random.randint(100000, 999999)
+    # # email = request.session.get('email')
+    # subject = 'Welcome new user, Xtracto got you covered on metadata extraction'
+    # message = ' Here is your verification code '+ str(verificationCode)
+    # email_from = settings.EMAIL_HOST_USER
+    # recipient_list = ['muhammedbayero@gmail.com',]
+    # send_mail(subject, message, email_from, recipient_list )
+    # # if request.method == POST and :
 
+#     send_mail(
+#     'Subject here',
+#     'Here is the message.',
+#     'muhammedbayero@yahoo.com',
+#     ['yinorhino@gmail.com'],
+#     fail_silently=False,
+# )
+    sender_email = "my@gmail.com"
+    receiver_email = "your@gmail.com"
+    message = """\
+    Subject: Hi there
+
+    This message is sent from Python."""
+    smtp_server = "smtp.mail.yahoo.com"
+    port = 587  # For starttls
+    sender_email = "muhammedbayero@yahoo.com"
+    password = 'bayerO187'
+
+    # Create a secure SSL context
+    context = ssl.create_default_context()
+
+    # Try to log in to server and send email
+    try:
+        server = smtplib.SMTP(smtp_server,port)
+        server.ehlo() # Can be omitted
+        server.starttls(context=context) # Secure the connection
+        server.ehlo() # Can be omitted
+        server.login(sender_email, password)
+        # TODO: Send email here
+        server.sendmail(sender_email, receiver_email, message)
+    except Exception as e:
+        # Print any error messages to stdout
+        print(e)
+    finally:
+        server.quit() 
     return render(request, "xtracto/verify.html")
 
 def register_request(request):
