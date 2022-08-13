@@ -156,10 +156,12 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
 # email confirmation during user registration
 EMAIL_USE_TLS = True  
-EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_USER = 'yinoITzuri@gmail.com'  
-EMAIL_HOST_PASSWORD = 'metadata'  
-EMAIL_PORT = 587  
+EMAIL_HOST = 'smtp.mail.yahoo.com'  
+# EMAIL_HOST_USER = 'yinoITzuri@gmail.com'
+EMAIL_HOST_USER = 'muhammedbayero@yahoo.com'  
+EMAIL_HOST_PASSWORD = 'password'
+# EMAIL_HOST_PASSWORD = 'password'  
+EMAIL_PORT = 465  
 
 MEDIA_URL = '/media/'
 # https://xtracto85.herokuapp.com/ | https://git.heroku.com/xtracto85.git

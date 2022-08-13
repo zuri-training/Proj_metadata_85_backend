@@ -66,7 +66,16 @@
             <!-- middle section -->
             <div class="middle">
                         
-                <div class="middle m-bottom-end">
+
+                <a style="font-size:25px; color:purple" href="/viewXtracto">Extract MetaData</a><br>
+    <p></p>
+    <a style="font-size:25px; color:purple" href="{% url 'xtracto:records' user.id %}">Metadata Records</a><br>
+    <p></p>
+    <a style="font-size:25px; color:purple" href="{% url 'xtracto:uploaded_records' %}">Uploaded Files</a>
+
+
+    
+                <!-- <div class="middle m-bottom-end">
                     <div class="m-headers">
                         <table class="table-3">
                             <tr>
@@ -156,7 +165,7 @@
 
                         </table>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             {% endblock %}

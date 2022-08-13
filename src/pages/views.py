@@ -9,7 +9,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as login_auth
-import random
+import random, smtplib, ssl
 from django.conf import settings
 from django.core.mail import send_mail
 
@@ -26,7 +26,7 @@ import csv, json
 from pages.models import Files, Records
 from django.http import HttpResponseRedirect
 
-import pages, smtplib, ssl
+import pages
 
 from .forms import FileUpload
 from django.urls import reverse_lazy
@@ -132,7 +132,7 @@ def verify(request):
     smtp_server = "smtp.mail.yahoo.com"
     port = 587  # For starttls
     sender_email = "muhammedbayero@yahoo.com"
-    password = 'bayerO187'
+    password = 'enter_password'
 
     # Create a secure SSL context
     context = ssl.create_default_context()
