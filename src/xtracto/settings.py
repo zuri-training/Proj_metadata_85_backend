@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import environ
 
 load_dotenv()
 
@@ -24,8 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be used, if set, instead)."
 
+
 if "SECRET_KEY" in os.environ:
     SECRET_KEY = os.environ.get("SECRET_KEY")
+elif env('SECRET_KEY'):
+    SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = True
 
@@ -165,3 +169,10 @@ EMAIL_PORT = 465
 
 MEDIA_URL = '/media/'
 # https://xtracto85.herokuapp.com/ | https://git.heroku.com/xtracto85.git
+
+
+# Initialise environment variables
+
+
+env = environ.Env()
+environ.Env.read_env()
