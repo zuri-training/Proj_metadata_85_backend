@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-import environ
+from decouple import config
 
 load_dotenv()
 
@@ -21,15 +21,16 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be used, if set, instead)."
+# SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be used, if set, instead)."
 
 
 if "SECRET_KEY" in os.environ:
     SECRET_KEY = os.environ.get("SECRET_KEY")
-elif env('SECRET_KEY'):
-    SECRET_KEY = env('SECRET_KEY')
+else:
+    SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
@@ -175,5 +176,4 @@ MEDIA_URL = '/media/'
 # Initialise environment variables
 
 
-env = environ.Env()
-environ.Env.read_env()
+

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
+from .models import *
 
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -75,6 +76,15 @@ def pwdreset(request):
 
 
 
+# TEST VIEWS
+def testView(request):
+    if request.user.is_authenticated:
+        number_of_entries = len(Records.objects.filter(owner= request.user))
+        return render(request, "main/test.html", {'number_of_entries':number_of_entries})
+    else:
+        return render(request, "xtracto/password_reset_confirm.html")
+
+
 
 
 
@@ -82,14 +92,21 @@ def pwdreset(request):
 # REQUIRES AUTH
 @login_required
 def dashboard(request):
-    username= request.session.get('username')
-    context = {'username':username}
-    return render(request, "xtracto/dashboard.html", context)
+    # username= request.session.get('username')
+
+    no_of_saved = len(Records.objects.filter(owner= request.user))
+    no_of_uploads = len(Files.objects.filter(owner= request.user))
+    username = request.user
+    return render(request, "xtracto/dashboard.html", {'username':username, 'no_of_uploads':no_of_uploads, 'no_of_saved': no_of_saved})
 
 @login_required
 def collections(request):
     return render(request, "xtracto/collections.html")
 
+
+@login_required
+def profile(request):
+    return render(request, "xtracto/profile.html")
 
 @login_required
 def features(request):
@@ -104,57 +121,29 @@ def dash(request):
     return render(request, "main/dashboard.html")
 
 
-# REG LOGIN VERIFICATION
+# REG VERIFICATION
 def verify(request):
-
-    # verificationCode = random.randint(100000, 999999)
-    # # email = request.session.get('email')
-    # subject = 'Welcome new user, Xtracto got you covered on metadata extraction'
-    # message = ' Here is your verification code '+ str(verificationCode)
-    # email_from = settings.EMAIL_HOST_USER
-    # recipient_list = ['muhammedbayero@gmail.com',]
-    # send_mail(subject, message, email_from, recipient_list )
-    # # if request.method == POST and :
-
-#     send_mail(
-#     'Subject here',
-#     'Here is the message.',
-#     'muhammedbayero@yahoo.com',
-#     ['yinorhino@gmail.com'],
-#     fail_silently=False,
-# )
-    # sender_email = "my@gmail.com"
-    # receiver_email = "your@gmail.com"
-    # message = """\
-    # Subject: Hi there
-
-    # This message is sent from Python."""
-    # smtp_server = "smtp.mail.yahoo.com"
-    # port = 587  # For starttls
-    # sender_email = "muhammedbayero@yahoo.com"
-    # password = 'enter_password'
-
-    # # Create a secure SSL context
-    # context = ssl.create_default_context()
-
-    # # Try to log in to server and send email
-    # try:
-    #     server = smtplib.SMTP(smtp_server,port)
-    #     server.ehlo() # Can be omitted
-    #     server.starttls(context=context) # Secure the connection
-    #     server.ehlo() # Can be omitted
-    #     server.login(sender_email, password)
-    #     # TODO: Send email here
-    #     server.sendmail(sender_email, receiver_email, message)
-    # except Exception as e:
-    #     # Print any error messages to stdout
-    #     print(e)
-    # finally:
-    #     server.quit() 
+    if request.session.get('email'):
+        print(request.session.get('email'))
+        # print(verify_email.objects.filter(email= request.session.get('email')).code)
+        verificationCode = random.randint(100000, 999999)
+        email = request.session.get('email')
+        subject = 'Welcome new user, Xtracto got you covered on metadata extraction '
+        message = ' Here is your verification code '+ str(verificationCode)
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = [email,]
+        verify_email(email= email, verifiedBool=False, code=verificationCode).save()
+        send_mail(subject, message, email_from, recipient_list )
+    elif request.method == 'POST' and request.POST['Code'] == verify_email.objects.get(email= email).code:
+        verify_email.objects.get(email=email).verifiedBool = True
+        # login_auth()
+        # return render(request, "xtracto/dashboard.html", {'username':username, 'number_of_entries':number_of_entries})
     return render(request, "xtracto/verify.html")
 
 def register_request(request):
-    if request.method == "POST":
+    if request.user.is_authenticated:
+        return render(request, "xtracto/dashboard.html")
+    elif request.method == "POST":
         form = Registrationform(request.POST)
         email = request.POST["username"]
         user = authenticate(request, username=email)
@@ -168,7 +157,8 @@ def register_request(request):
                 messages.success(request, "Registration successful, Please log in.")
                 post.save()
                 print
-                # return render(request, "xtracto/login.html", {'status_msg':messages})
+                request.session['email']= post.email
+                # return render(request, "xtracto/verify.html", {'email':post.email})
                 return redirect("xtracto:login")
             else:
                 messages.success(request, "email Already exists,please Login")
@@ -198,26 +188,30 @@ def register_request(request):
 
 
 def login_request(request):
-    # if User.is_authenticated:
-    #     context = {'username':email}
-    #     return render(request, "xtracto/dashboard.html", context)
-    
-    if request.method == "POST":
+    if request.user.is_authenticated:
+        return render(request, "xtracto/dashboard.html")
+        context = {'username':email}
+        return render(request, "xtracto/dashboard.html", context)
+    elif request.method == "POST":
         email = request.POST["email"]
         password = request.POST["password"]
         user = authenticate(request, username=email, password=password)
 
         if user is not None:
             login_auth(request, user)
-            context = {'username':email}
-            return render(request, "xtracto/dashboard.html", context)
-
+            no_of_saved = len(Records.objects.filter(owner= request.user))
+            no_of_uploads = len(Files.objects.filter(owner= request.user))
+            username = request.user
+            return render(request, "xtracto/dashboard.html", {'username':username, 'no_of_uploads':no_of_uploads, 'no_of_saved': no_of_saved})
+            
         else:
             messages.success(request, "There was an error Logging in.")
             return render(request, "xtracto/login.html", {})
 
     else:
         return render(request, "xtracto/login.html", {})
+
+
 
 
 def logout_request(request):
