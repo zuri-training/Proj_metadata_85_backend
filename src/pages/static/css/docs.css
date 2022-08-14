@@ -58,7 +58,7 @@ ul{
     }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 650px) {
     
 
     .main-docs, .libraries, .getting_started{
@@ -70,7 +70,7 @@ ul{
         color: #435773;
     }
     .js-btn,.js-btn-x{
-        
+        color: black;
         font-size: 50px;
         position: absolute;
         right: 6.94846555%;
@@ -84,7 +84,7 @@ ul{
         display: block;
         position: absolute;
         top: 0;
-        right: 0;
+        left: 0;
         width: 80%;
         height: 100%;
         padding: 50px;

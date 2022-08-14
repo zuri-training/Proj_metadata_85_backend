@@ -24,6 +24,7 @@ Verify
         Enter your 6 digit code sent to your email
     </p>
     <form method="POST" action="">
+        {% csrf_token %}
         <input type="text" name="Code" class="code" >
         <input type="submit" value= "Done" name="submit" class="Codesubmit">
     </form>

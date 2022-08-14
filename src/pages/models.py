@@ -3,6 +3,12 @@ from django.conf import settings
 
 # Create your models here.
 
+class verify_email(models.Model):
+    email =models.EmailField(max_length=200)
+    code = models.TextField()
+    verifiedBool = models.BooleanField()
+    def __str__(self):
+        return self.email
 
 class Records(models.Model):
     name = models.CharField(max_length=200)

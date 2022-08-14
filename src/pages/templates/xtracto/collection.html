@@ -8,22 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
     {% block css %}
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
     
     <link rel="stylesheet" href="{% static 'css/collection.css' %}">
     {% endblock %}
-    <title>Collections:Xtracto</title>
+    
+    <title>{% block title %}Collections:Xtracto{% endblock %}</title>
+
 </head>
 
 <body>
+   
     <main>
         <!-- nav goes here -->
         <div class="parent">
             <!-- left panel -->
             <div class="left">
-                <h2>XTRACTO</h2>
+                <a href="{% url 'xtracto:home' %}" ><h2>XTRACTO</h2></a>
                 <p class="side-link"><a href="#" class="fa fa-home"></a><a href="{% url 'xtracto:home' %}" class="hm"
                         style="padding-left: 8px;">Home</a></p>
                 <p class="side-link"><a href="" class="fa fa-user-o"></a><a href="{% url 'xtracto:features' %}"
@@ -55,6 +59,8 @@
                         <input type="text" placeholder="Search" name="search">
                     </form>
                 </div>
+                
+
                 {% block middlesection%}
                 <div>
                     <p style="background-color: #F7F7F8; padding-left: 4em; padding-top: 2em; padding-bottom: 1em;">

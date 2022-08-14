@@ -81,6 +81,7 @@ select {
     display: block;
     grid-area: c;
     background-color: #F7F7F8;
+    min-height: 80%;
     /* width: 800px; */
     /* padding-left: 30px; */
 }
