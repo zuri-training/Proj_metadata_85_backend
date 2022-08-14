@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
 from .models import *
+from .models import Profile as Profile_model
 
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -136,6 +137,7 @@ def verify(request):
         send_mail(subject, message, email_from, recipient_list )
     elif request.method == 'POST' and request.POST['Code'] == verify_email.objects.get(email= email).code:
         verify_email.objects.get(email=email).verifiedBool = True
+        return HttpResponse("Verified")
         # login_auth()
         # return render(request, "xtracto/dashboard.html", {'username':username, 'number_of_entries':number_of_entries})
     return render(request, "xtracto/verify.html")
@@ -203,7 +205,7 @@ def login_request(request):
             no_of_uploads = len(Files.objects.filter(owner= request.user))
             username = request.user
             return render(request, "xtracto/dashboard.html", {'username':username, 'no_of_uploads':no_of_uploads, 'no_of_saved': no_of_saved})
-            
+
         else:
             messages.success(request, "There was an error Logging in.")
             return render(request, "xtracto/login.html", {})
@@ -350,6 +352,15 @@ def download_csv_data(request):
 
     writer.writerow(metadata_label_name)
     writer.writerow(metadata_label_value)
+
+    # print(Profile_model.objects.get(owner= request.user))
+    # # ADDED TO COUNT NO OF DOWNLOADS
+    # if Profile_model.objects.filter(owner= request.user):
+    #     Profile_model.objects.get(owner= request.user).no_of_downloads = Profile_model.objects.get(owner= request.user).no_of_downloads + 1
+    #     Print(Profile_model.objects.filter(owner= request.user).no_of_downloads)
+    # else:
+    #     # Profile_model()
+    #     pass
 
     return response
 

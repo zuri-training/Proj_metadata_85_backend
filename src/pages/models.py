@@ -19,6 +19,16 @@ class Records(models.Model):
     def __str__(self):
         return self.name
 
+class Profile(models.Model):
+    Phone_no = models.CharField(max_length=20)
+    Country = models.TextField(null=True)
+    full_name = models.CharField(max_length=200)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    no_of_downloads = models.PositiveSmallIntegerField(default=0, blank=True, null=True)
+
+    def __str__(self):
+        return self.full_name
+
 
 class Files(models.Model):
     file_name = models.CharField(max_length=200)
