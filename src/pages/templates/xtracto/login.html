@@ -77,7 +77,7 @@
       <label for="password">Password</label>
       <input type="password" spellcheck="true" name="password" id="password" required >
 
-      <a href="/password_reset" class="forgot-password">Forgot password?</a>
+      <a href="{% url 'xtracto:password_reset' %}" class="forgot-password">Forgot password?</a>
       <input type="submit" class="form-btn" name="submit" value="Log in">
 
       <p>Dont't have an account?<span><a href="{% url 'xtracto:register' %}">Sign Up</a></span></p>
