@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;400&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,7 +54,7 @@
                 <p>Upload, extract, process and centralize your file's metadata.</p>
                 <p>Sign up to get access to amazing features.</p>
 
-                <button>Get started</button>
+                <a href="{% url 'xtracto:register' %}"><button >Get started</button></a>
             </div>
             
             <!-- navbar goes here -->
@@ -67,7 +72,7 @@
                     files of any size and extract their metadata. It displays extracted metadata and allows users to
                     edit, save, export, download, and share files and metadata. You can do more with Xtracto by
                     converting files, resizing picture content, and many more!</p>
-                <button>Learn More</button>
+                    <a href="{% url 'xtracto:docs' %}"><button>Learn More</button></a>
             </div>
             <div class="middle">
                 <h1>Any data, any source, we pull the validated data for you</h1>
@@ -131,7 +136,7 @@
         <div class="fourth-section">
             <div class="inner">
                 <h1>Become part of our community and get access to unlimited features</h1>
-                <button>Get exclusive features</button>
+                <a href="{% url 'xtracto:register' %}"><button>Get exclusive features</button></a>
             </div>
 
         </div>

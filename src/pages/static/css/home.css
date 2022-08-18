@@ -331,7 +331,7 @@ button {
     padding-bottom: 3em;
     color: white;
     border-radius: 15px;
-    background-image: url('../images-homepage/finger-touch.jpg');
+    background-image: url(/images/finger-touch.jpg);
     background-repeat: no-repeat;
     /* code below makes bkg image fit whole div */
     background-size: 100%;

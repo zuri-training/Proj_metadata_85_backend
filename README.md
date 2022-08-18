@@ -1,3 +1,16 @@
+Architecture- Monolith (Django Templating)
+
+manage.py file directory - src/manage.py
+requirements.txt file- src/requirements.txt
+
+How to run project 
+Create a virtual environment - virtualenv env
+Activate virtual environment- env\Scripts\activate
+cd src
+pip install -r requirements.txt
+python manage.py runserver
+
+
 # Xtracto - A web app to Fetch metadata
 
 ## Product Brief 

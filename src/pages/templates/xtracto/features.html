@@ -1,1 +1,81 @@
-{% extends 'xtracto/dashboard.html' %}
+{% extends 'xtracto/collection.html'%}
+    {% load static %}
+    <title>{% block title %}Dashboard Xtracto {% endblock %}</title>
+
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/features.css' %}">
+    {% endblock %}
+
+{% block middlesection%}
+            <!-- right section -->
+            <div class="middle-right">
+                <div class="item1">
+                    <img src="/images-homepage/file-data-exchange-icon.svg" alt="File" style="width: 50px; height:50px">
+                    <h3>File Conversion</h3>
+                    <p>The file converter will allow you to convert jpg to png, png to jpg or other file types. Upload
+                        your
+                        file, change the file type from your browser, and download.</p>
+                        <p class="upload" style="padding-top: 2em;"><input type="submit" value="Convert File"></p>
+                </div>
+                <div class="item2">
+                    <img src="/images-homepage/paint-brush-drawing-icon.svg" alt="Color-brush"
+                        style="width: 50px; height:50px">
+                    <h3>Generate Color Pallete</h3>
+                    <p>This simple colour pallete generator extracts colours from any uploaded photo or file. Then copy
+                        the
+                        HEX codes from the colour pallete app with a simple click.</p>
+                        <p class="upload" style="padding-top: 2em;"><input type="submit" value="Generate Colour"></p>
+                </div>
+                <div class="item3">
+                    <img src="/images-homepage/data-icon.svg" alt="database" style="width: 50px; height:50px">
+                    <h3>Extra Metadata</h3>
+                    <p>Extract the metadata recorded behind files you upload, ranging from file size and modification
+                        history to the software tools used to create the file.</p>
+                        <p class="upload" style="padding-top: 2em;"><input type="submit" value="Extract Data"></p>
+                </div>
+                <div class="item4">
+                    <img src="/images-homepage/small-screen-arrow-icon.svg" alt="Resize"
+                        style="width: 50px; height:50px;">
+                    <h3>Resize file</h3>
+                    <p>This resize option allows you to reduce the size of a file that either exists on Xtracto or one
+                        you
+                        uploaded. You can enlarge or minimize the file.</p>
+                        <p class="upload" style="padding-top: 2em;"><input type="submit" value="Resize File"></p>
+                </div>
+            </div>
+
+            <!-- middle section -->
+            <div class="right">
+                <p style="padding: 1em; padding-top: 1.5em; font-size: 24px;"><strong>File Conversion</strong></p>
+                <p style="padding: 1em;">The file converter will allow you to convert jpg to png, png to jpg or other file types. Upload your
+                    file, change the file type from your browser , and download</p>
+                    
+                <div class="r-top">
+                    <p>JPG/JPEG, GIF</p>
+                    <p>PNG, JSON, CSV, PDF</p>
+                    <p class="upload" style="padding-top: 2em;"><input type="submit" value="Upload file"></p>
+                </div>
+                <p style="padding-left: 1em; text-align: left;">Download as</p>
+                <div class="r-bottom">
+                    <label for="file-types"></label>
+                    <select name="file-types" id="options">
+                        <option value="png">PNG</option>
+                        <option value="jpg">JPG</option>
+                        <option value="jpeg">JPEG</option>
+                        <option value="gif">GIF</option>
+                        <option value="csv">CSV</option>
+                        <option value="json">JSON</option>
+                        <option value="pdf">PDF</option>
+                    </select>
+                </div>
+                <p class="save-meta"><input type="submit" name="" id="save"
+                        value="Download"></p>
+
+            </div>
+        </div>
+{% endblock %}
+
+{% block notForFeatures%}
+
+         
+{% endblock %}

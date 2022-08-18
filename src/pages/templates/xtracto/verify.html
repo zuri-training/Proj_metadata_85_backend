@@ -1,16 +1,36 @@
-{% extends 'xtracto/pwdreset.html' %}
+{% extends 'xtracto/About-us.html' %}
 
+{% load static %}
 {% block title %}
 Verify
-{% endblock%}
+{% endblock %}
 
-{% block h1 %}
-        Verify your email
+{% block css %}
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+    <link href="{% static 'css/verify.css' %}" rel="stylesheet">
 {% endblock %}
 
 
-{% block form %}
-            <p class="code">Enter your 6 digit code sent to your email</p>
-          <input type="text"  name="code" id="code" required>
-          <input type="submit" name="submit" class="pwd-submit" value="Done">
-{% endblock form %}
+
+{% block content %}
+
+
+<div class="verify-div">
+
+    <h1>
+        Verify your email
+    </h1>
+    <p>
+        Enter your 6 digit code sent to your email
+    </p>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="Code" class="code" >
+        <input type="submit" value= "Done" name="submit" class="Codesubmit">
+    </form>
+
+    
+
+</div>
+
+{% endblock %}

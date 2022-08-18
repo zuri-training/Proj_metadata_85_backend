@@ -4,8 +4,8 @@ h6{
     color: #1D3557;
 }
 .main-docs{
-    
-    width: 80%;
+    width:90%;
+    margin-right: 0;
 }
 
 .docs-h5{
@@ -40,6 +40,57 @@ ul{
 .libraries, .getting_started{
 
     display: none;
+    width: 80%;
 }
 
+.js-btn,.js-btn-x{
+    display: none;
+    color: #743CA8;
+}
+
+
+@media only screen and (max-width: 900px) {
     
+
+    .main-docs, .libraries, .getting_started{
+    
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    
+
+    .main-docs, .libraries, .getting_started{
+        
+        width: 100%;
+    }
+    .js-btn{
+        display: inline-block;
+        color: #435773;
+    }
+    .js-btn,.js-btn-x{
+        color: black;
+        font-size: 50px;
+        position: absolute;
+        right: 6.94846555%;
+        top: 1.44759699%;
+        z-index: 1;
+    }
+    .js-btn-x{
+        color: #FFFFFF;
+    }
+    .toggle{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        padding: 50px;
+        padding-top: 100px;
+        background-color: #68788F;
+        z-index: 1;
+    }
+}
+

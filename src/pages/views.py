@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
+from .models import *
+from .models import Profile as Profile_model
 
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -9,6 +11,9 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as login_auth
+import random, smtplib, ssl
+from django.conf import settings
+from django.core.mail import send_mail
 
 
 from django.http import HttpResponse
@@ -18,17 +23,18 @@ from django.utils.encoding import smart_str
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from tinytag import TinyTag
-import csv
+import csv, json
 
-# from metadata.models import Contact
+from pages.models import Files, Records
 from django.http import HttpResponseRedirect
 
-import xtracto
+import pages
 
 from .forms import FileUpload
 from django.urls import reverse_lazy
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
@@ -49,7 +55,6 @@ def contact(request):
     return render(request, "xtracto/contact.html")
 
 
-
 def faqs(request):
     return render(request, "xtracto/faqs.html")
 
@@ -57,78 +62,123 @@ def faqs(request):
 def docs(request):
     return render(request, "xtracto/docs.html")
 
-
-# DYNAMIC VIEWS
-
-
-def pwdreset(request):
-    return render(request, "xtracto/pwdreset.html")
-
-
-def verify(request):
-    return render(request, "xtracto/verify.html")
-
-
-# DYNAMIC VIEWS
-
-
-def pwdreset(request):
-    return render(request, "xtracto/pwdreset.html")
-
-
-def verify(request):
-    return render(request, "xtracto/verify.html")
-
-
 def docs(request):
     return render(request, "xtracto/docs.html")
 
 
-# dashboard page with authentication
+# DYNAMIC VIEWS
+class PasswordsChangeView(PasswordChangeView):
+    form_class = PasswordChangeView
+    success_url = reverse_lazy("xtracto/login.html")
+
+def pwdreset(request):
+    return render(request, "xtracto/password_reset_confirm.html")
+
+
+
+
+# TEST VIEWS
+def testView(request):
+    if request.user.is_authenticated:
+        number_of_entries = len(Records.objects.filter(owner= request.user))
+        return render(request, "main/test.html", {'number_of_entries':number_of_entries})
+    else:
+        return render(request, "xtracto/password_reset_confirm.html")
+
+
+
+
+
+
+# REQUIRES AUTH
 @login_required
 def dashboard(request):
-    return render(request, "xtracto/dashboard.html")
+    # username= request.session.get('username')
 
+    no_of_saved = len(Records.objects.filter(owner= request.user))
+    no_of_uploads = len(Files.objects.filter(owner= request.user))
+    username = request.user
+    return render(request, "xtracto/dashboard.html", {'username':username, 'no_of_uploads':no_of_uploads, 'no_of_saved': no_of_saved})
 
+@login_required
 def collections(request):
     return render(request, "xtracto/collections.html")
 
 
+@login_required
+def profile(request):
+    return render(request, "xtracto/profile.html")
+
+@login_required
 def features(request):
     return render(request, "xtracto/features.html")
 
+@login_required
+def collection(request):
+    return render(request, "xtracto/collection.html")
+
+@login_required
+def dash(request):
+    return render(request, "main/dashboard.html")
+
+
+# REG VERIFICATION
+def verify(request):
+    if request.session.get('email'):
+        print(request.session.get('email'))
+        # print(verify_email.objects.filter(email= request.session.get('email')).code)
+        verificationCode = random.randint(100000, 999999)
+        email = request.session.get('email')
+        subject = 'Welcome new user, Xtracto got you covered on metadata extraction '
+        message = ' Here is your verification code '+ str(verificationCode)
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = [email,]
+        verify_email(email= email, verifiedBool=False, code=verificationCode).save()
+        send_mail(subject, message, email_from, recipient_list )
+    elif request.method == 'POST' and request.POST['Code'] == verify_email.objects.get(email= email).code:
+        verify_email.objects.get(email=email).verifiedBool = True
+        return HttpResponse("Verified")
+        # login_auth()
+        # return render(request, "xtracto/dashboard.html", {'username':username, 'number_of_entries':number_of_entries})
+    return render(request, "xtracto/verify.html")
 
 def register_request(request):
-    if request.method == "POST":
+    if request.user.is_authenticated:
+        return render(request, "xtracto/dashboard.html")
+    elif request.method == "POST":
         form = Registrationform(request.POST)
         email = request.POST["username"]
         user = authenticate(request, username=email)
+        request.session['email']= email
         if user is None:
             if form.is_valid():
                 post = form.save(commit=False)
                 post.username = request.POST["username"]
                 post.email = request.POST["username"]
                 post.password = make_password(request.POST["password"])
-                messages.success(request, "Registration successful.")
+                messages.success(request, "Registration successful, Please log in.")
                 post.save()
-
-                # login after ctreating account
-                user = authenticate(
-                    request,
-                    username=request.POST["username"],
-                    password=request.POST["password"],
-                )
-                login_auth(request, user)
-                # return render(request=request, template_name="xtracto/dashboard.html", context={})
-                return redirect("xtracto:dashboard")
+                print
+                request.session['email']= post.email
+                # return render(request, "xtracto/verify.html", {'email':post.email})
+                return redirect("xtracto:login")
             else:
-                form = Registrationform()
-                return render(request=request, template_name="xtracto/register.html", context={'form': form})
+                messages.success(request, "email Already exists,please Login")
+                return render(
+                    
+                    request=request,
+                    template_name="xtracto/register.html",
+                    context={"form": form, 'status_msg':messages},
+                )
 
         else:
-            messages.error(request, "email Already exists")
+            messages.success(request, "email Already exists,please Login")
             form = Registrationform()
-            return render(request=request, template_name="xtracto/register.html", context={'form': form})
+            return render(
+                request=request,
+                template_name="xtracto/login.html",
+                context={'status_msg':messages},
+            )
     else:
         form = Registrationform()
         return render(
@@ -136,17 +186,25 @@ def register_request(request):
             template_name="xtracto/register.html",
             context={"form": form},
         )
+        
 
 
 def login_request(request):
-    if request.method == "POST":
+    if request.user.is_authenticated:
+        return render(request, "xtracto/dashboard.html")
+        context = {'username':email}
+        return render(request, "xtracto/dashboard.html", context)
+    elif request.method == "POST":
         email = request.POST["email"]
         password = request.POST["password"]
         user = authenticate(request, username=email, password=password)
 
         if user is not None:
             login_auth(request, user)
-            return render(request, "xtracto/dashboard.html", {})
+            no_of_saved = len(Records.objects.filter(owner= request.user))
+            no_of_uploads = len(Files.objects.filter(owner= request.user))
+            username = request.user
+            return render(request, "xtracto/dashboard.html", {'username':username, 'no_of_uploads':no_of_uploads, 'no_of_saved': no_of_saved})
 
         else:
             messages.success(request, "There was an error Logging in.")
@@ -156,16 +214,30 @@ def login_request(request):
         return render(request, "xtracto/login.html", {})
 
 
+
+
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
     return redirect("xtracto:home")
 
 
+# --------------------------------------@
+# ----------------View metadata Records----------------@
+def metadata_view(request, pk):
+    data = Records.objects.get(id=pk)
+    xtracto = json.loads(data.data)
+    context = xtracto
+    request.session["xtracto"] = context
+    return render(request, "xtracto/result.html", context)
+
+
 # ------Metadata-------#
-class view_xtracto(View):
+class view_xtracto(LoginRequiredMixin, View):
     success_url = reverse_lazy("xtracto:viewXtracto")
     template_name = "xtracto/upload.html"
+    login_url = "/login"
+    REDIRECT_FIELD_NAME = "next"
 
     def post(self, request):
         form = FileUpload(request.POST, request.FILES)
@@ -216,6 +288,16 @@ class view_xtracto(View):
                         context["xtracto"].append(
                             {"label_name": label_name, "label_value": label_value}
                         )
+            if uploaded_file:
+                name = uploaded_file.name
+                owner = request.user
+                file = Files.objects.filter(file_name=name).exists()
+
+                if not file:
+                    data = Files(
+                        file_name=name, uploaded_file=uploaded_file, owner=owner
+                    )
+                    data.save()
 
             request.session["xtracto"] = context
             return redirect("xtracto:result")
@@ -237,16 +319,26 @@ def result(request):
 
 # ---------------------------------------------#
 
+# -------------uploaded files------------------@
+class uploaded_records(LoginRequiredMixin, View):
+    login_url = "/login"
+    model = Files
+    template_name = "xtracto/uploaded_records.html"
+
+    def get(set, request):
+        owner = request.user
+        files = Files.objects.all()
+        context = {"owner": owner, "files": files}
+        return render(request, "xtracto/uploaded_records.html", context)
+
 
 def download_csv_data(request):
-    #  content type
     xtracto = request.session.get("xtracto")
     metadata_label = list(xtracto.keys())[1:]
 
     response = HttpResponse(content_type="text/csv")
     # file name
-    response["Content-Disposition"] = "attachment; filename= label_value.csv"
-    # ' "download.csv" '
+    response["Content-Disposition"] = "attachment; filename= sample.csv"
 
     writer = csv.writer(response, csv.excel)
     response.write("\ufeff".encode("utf8"))
@@ -261,20 +353,59 @@ def download_csv_data(request):
     writer.writerow(metadata_label_name)
     writer.writerow(metadata_label_value)
 
+    # print(Profile_model.objects.get(owner= request.user))
+    # # ADDED TO COUNT NO OF DOWNLOADS
+    # if Profile_model.objects.filter(owner= request.user):
+    #     Profile_model.objects.get(owner= request.user).no_of_downloads = Profile_model.objects.get(owner= request.user).no_of_downloads + 1
+    #     Print(Profile_model.objects.filter(owner= request.user).no_of_downloads)
+    # else:
+    #     # Profile_model()
+    #     pass
+
     return response
 
 
 # saving the extracted metadata
-# still working on this code
 # ---------------------------
-# def saveMeta(request):
-#     template = "save.html"
-#     form = saveMetada(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         return redirect("/")
-#     context = {"form": form}
-#     return render(request, template, context)
+def save_metadata(request):
+    xtracto = request.session.get("xtracto")
+    name = xtracto["xtracto"][0]
+    owner = request.user
+    if (
+        Records.objects.filter(name=name).exists()
+        and Records.objects.get(name=name).owner == owner
+    ):
+        messages.info(request, "File already exist")
+        return render(request, "xtracto/collections.html")
+    else:
+        data = json.dumps(xtracto)
+        records = Records(data=data, name=name, owner=owner)
+        records.save()
+        messages.info(request, "succesfully saved")
+        return render(request, "xtracto/dashboard.html")
 
 
+# --------------------------------------@
+# ----------------Records----------------@
 
+
+class records(LoginRequiredMixin, View):
+    login_url = "/login"
+    success_url = reverse_lazy("xtracto:records")
+    model = Records
+    template_name = "xtracto/save_metadata.html"
+
+    def get(self, request, pk):
+        user = request.user
+        records = Records.objects.all()
+        context = {"records": records, "user": user}
+        return render(request, self.template_name, context)
+
+
+# --------------------------------------@
+# ----------------Delete----------------@
+def delete(request, pk):
+    file = Files.objects.get(id=pk)
+    file.delete()
+    messages.info(request, f"succesfully Deleted")
+    return redirect("/uploaded_records")

@@ -1,0 +1,30 @@
+.code{
+    width: 30%;
+    min-width: 200px;
+    padding: 15px;
+    border: 1.5px solid #BBBBBB;
+    border-radius: 8px;
+    color: #1D3557;
+    margin-bottom: 30px;
+}
+
+.Codesubmit{
+    width: 30%;
+    min-width: 200px;
+    display: block;
+    padding: 15px 24px 15px 28px;
+    margin: auto;
+    background: #743CA8;
+    color: #ffffff;
+    border-radius: 8px;
+    border-style: none;
+    font-family: 'Lexend';
+    font-size: 15px;
+}
+
+.verify-div{
+    text-align: center;
+    margin: 100px 0;
+    color: #1D3557;
+}
+

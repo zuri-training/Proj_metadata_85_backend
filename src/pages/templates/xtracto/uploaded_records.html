@@ -19,10 +19,6 @@
   <!-- google font link -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- GOOGLE FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;400&family=Poppins:wght@700&display=swap" rel="stylesheet">
   <link
     href="https://fonts.googleapis.com/css2?family=Comforter&family=Poppins&family=Inter:wght@200,300,400,500,600,700,800,900&family=Quintessential&display=swap"
     rel="stylesheet">
@@ -36,6 +32,9 @@
 <body>
     
 
+    
+
+{% load crispy_forms_tags %}
   <!-- Navbar -->
   <nav>
     <h1>XTRACTO</h1>
@@ -43,13 +42,9 @@
       <li><a href="{% url 'xtracto:home' %}" class="nav-link">Home</a></li>
       <li><a href="{% url 'xtracto:about' %}" class="nav-link">About Us</a></li>
       <li><a href="{% url 'xtracto:contact' %}" class="nav-link">Contact Us</a></li>
-      <li><a href="{% url 'xtracto:faqs' %}" class="nav-link">FAQs</a></li>
+      <li><a href="{% url 'xtracto:contact' %}" class="nav-link">FAQs</a></li>
     </ul>
 
-    <div class="signup-link">
-      <a href="{% url 'xtracto:login' %}" class="sign-in-btn nav-btn"> Sign in </a>
-      <a href="{% url 'xtracto:register' %}" class="register-btn nav-btn">Get exclusive features</a>
-    </div>
 
     <button class="burger-menu" id="burger-menu">
       <ion-icon class="bars" name="menu-outline"></ion-icon>
@@ -61,33 +56,34 @@
   {% block content %}  
   <main>
 
-<!--insert login files from  frontend--> 
+	<div style="margin: auto;">
+		<h1 style="text-align: center">UPLOADED FILES</h1>
+	
+		<table border="3" style="width: 50%; background-color:#28282B; color:white; font-size:20px; margin: auto;">
+			
+			<thead>
+                <th>DATE</th>
+                <th>FILE NAME</th>
+                <th>DOWNLOAD?</th>
+                <th>DELETE?</th>
+            </thead>
+        
+            {% for i in files %}
+            <tr></tr>
+            {% if i.owner == user%}
+            <td style="padding: 1rem 1rem;">{{ i.created_at }}</td>
+            <td style="padding: 1rem 1rem;">{{ i.file_name }} </td>
+            <td ><a style="color:green" href="{{i.uploaded_file.url}}" download="{{i.uploaded_file.url}}"><strong>Download</strong></a></td>
+            <td style="padding: 1rem 1rem;"><a style="color:red" href="delete/{{i.id}}">Delete file</a></td>
+            {% endif %}
+            </tr>
+            {% endfor %}
 
-<div class="container">
-  <h1>Welcome back !</h1>
-  
-  <div class="form-wrapper">
-    <form method="POST">
-        {% csrf_token %}
-      
 
-      <label for="email">Email Address</label>
-      <input type="email" spellcheck="true" name="email" id="email" required title="Enter a valid Email">
+		</table>
 
-      <label for="password">Password</label>
-      <input type="password" spellcheck="true" name="password" id="password" required >
-
-      <a href="{% url 'xtracto:password_reset' %}" class="forgot-password">Forgot password?</a>
-      <input type="submit" class="form-btn" name="submit" value="Log in">
-
-      <p>Dont't have an account?<span><a href="{% url 'xtracto:register' %}">Sign Up</a></span></p>
-    </form>
-  </div>
-</div>
-
-<!-- <div class="container py-5">
-  
-</div> -->
+		
+	</div>
 
 </main>
 {% endblock %}
@@ -137,7 +133,7 @@
       <li><a href="{% url 'xtracto:about' %}">Terms & Condition</a></li>
       <li><a href="{% url 'xtracto:about' %}">Disclaimer</a></li>
       <li><a href="{% url 'xtracto:about' %}">Support</a></li>
-      <li><a href="{% url 'xtracto:faqs' %}">FAQs</a></li>
+      <li><a href="{% url 'xtracto:about' %}">FAQs</a></li>
     </ul>
   </div>
 
@@ -195,3 +191,14 @@
 </body>
 
 </html>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
