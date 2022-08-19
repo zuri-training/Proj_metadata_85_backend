@@ -34,6 +34,7 @@ else:
 
 DEBUG = True
 
+CSRF_TRUSTED_ORIGINS = ['https://xtracto85.herokuapp.com']
 
 # We'll remove localhost from allowed host when the project is done
 ALLOWED_HOSTS = ["https://xtracto85.herokuapp.com", "127.0.0.1"]
