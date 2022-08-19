@@ -36,7 +36,7 @@ DEBUG = True
 
 
 # We'll remove localhost from allowed host when the project is done
-ALLOWED_HOSTS = ["xtracto85.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["https://xtracto85.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
