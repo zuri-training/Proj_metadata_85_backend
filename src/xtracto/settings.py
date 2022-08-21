@@ -112,7 +112,7 @@ DATABASES = {
 
         'PASSWORD': 'metadata',
 
-        'HOST': 'https://young-coast-20585.herokuapp.com',
+        'HOST': '127.0.0.1',
 
         'PORT': '5432',
 

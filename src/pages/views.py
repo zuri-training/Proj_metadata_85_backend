@@ -201,10 +201,11 @@ def login_request(request):
 
         if user is not None:
             login_auth(request, user)
-            no_of_saved = len(Records.objects.filter(owner= request.user))
-            no_of_uploads = len(Files.objects.filter(owner= request.user))
+            # no_of_saved = len(Records.objects.filter(owner= request.user))
+            # no_of_uploads = len(Files.objects.filter(owner= request.user))
             username = request.user
-            return render(request, "xtracto/dashboard.html", {'username':username, 'no_of_uploads':no_of_uploads, 'no_of_saved': no_of_saved})
+            # return render(request, "xtracto/dashboard.html", {'username':username, 'no_of_uploads':no_of_uploads, 'no_of_saved': no_of_saved})
+            return render(request, "xtracto/dashboard.html", {'username':username})
 
         else:
             messages.success(request, "There was an error Logging in.")
