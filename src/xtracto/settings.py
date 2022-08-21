@@ -106,13 +106,13 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'metadata',
+        'NAME': 'd6v1ihm41auu42',
 
-        'USER': 'postgres',
+        'USER': 'dzolzhzuebbjjp',
 
-        'PASSWORD': 'metadata',
+        'PASSWORD': '20c0534a1775c69e1ff74b8359b1cc2a127a332dc3bd6286a43d6296561b0dac',
 
-        'HOST': 'young-coast-20585.herokuapp.com',
+        'HOST': 'ec2-34-231-177-125.compute-1.amazonaws.com',
 
         'PORT': '5432',
 
