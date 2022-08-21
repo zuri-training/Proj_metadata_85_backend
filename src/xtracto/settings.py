@@ -24,13 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-# SECRET_KEY = "CHANGE_ME!!!! (P.S. the SECRET_KEY environment variable will be used, if set, instead)."
+SECRET_KEY = "django-insecure-=ylnl8#s%=dy&3(a_@pjy7-!2na(*iz(xsf#-cwhwioplxe6(j"
 
 
-if "SECRET_KEY" in os.environ:
-    SECRET_KEY = os.environ.get("SECRET_KEY")
-else:
-    SECRET_KEY = config('SECRET_KEY')
+# if "SECRET_KEY" in os.environ:
+#     SECRET_KEY = os.environ.get("SECRET_KEY")
+# else:
+#     SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
