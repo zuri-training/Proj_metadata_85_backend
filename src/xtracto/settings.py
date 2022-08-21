@@ -37,7 +37,7 @@ DEBUG = True
 CSRF_TRUSTED_ORIGINS = ['https://xtracto85.herokuapp.com','http://young-coast-20585.herokuapp.com']
 
 # We'll remove localhost from allowed host when the project is done
-ALLOWED_HOSTS = ["https://xtracto85.herokuapp.com", "127.0.0.1","http://young-coast-20585.herokuapp.com"]
+ALLOWED_HOSTS = ["https://xtracto85.herokuapp.com", "127.0.0.1","young-coast-20585.herokuapp.com"]
 
 
 # Application definition
