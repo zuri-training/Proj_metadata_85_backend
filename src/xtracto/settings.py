@@ -34,10 +34,10 @@ SECRET_KEY = "django-insecure-=ylnl8#s%=dy&3(a_@pjy7-!2na(*iz(xsf#-cwhwioplxe6(j
 
 DEBUG = True
 
-CSRF_TRUSTED_ORIGINS = ['https://xtracto85.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://xtracto85.herokuapp.com','young-coast-20585.herokuapp.com']
 
 # We'll remove localhost from allowed host when the project is done
-ALLOWED_HOSTS = ["https://xtracto85.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["https://xtracto85.herokuapp.com", "127.0.0.1",'young-coast-20585.herokuapp.com']
 
 
 # Application definition
